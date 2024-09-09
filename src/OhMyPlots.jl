@@ -2,6 +2,7 @@ module OhMyPlots
 
     using Plots
 
-    include("plot_multi_level.jl")
+    include("types_interfaces/_types.jl")
+    include("plots/_plots.jl")
 
 end

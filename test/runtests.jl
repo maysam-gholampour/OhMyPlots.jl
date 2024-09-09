@@ -2,5 +2,5 @@ using OhMyPlots
 using Test
 
 @testset "OhMyPlots.jl" begin
-    # Write your tests here.
+    include("types_test/_types_tests.jl")
 end
