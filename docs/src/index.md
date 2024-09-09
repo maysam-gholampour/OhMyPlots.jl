@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = PlotMultiLevelData
+CurrentModule = OhMyPlots
 ```
 
-# PlotMultiLevelData
+# OhMyPlots
 
-Documentation for [PlotMultiLevelData](https://github.com/maysam-gholampour/PlotMultiLevelData.jl).
+Documentation for [OhMyPlots](https://github.com/maysam-gholampour/OhMyPlots.jl).
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [PlotMultiLevelData]
+Modules = [OhMyPlots]
 ```

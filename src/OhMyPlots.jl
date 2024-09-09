@@ -1,4 +1,4 @@
-module PlotMultiLevelData
+module OhMyPlots
 
     using Plots
 

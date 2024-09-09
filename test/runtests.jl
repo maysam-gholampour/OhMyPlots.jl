@@ -1,6 +1,6 @@
-using PlotMultiLevelData
+using OhMyPlots
 using Test
 
-@testset "PlotMultiLevelData.jl" begin
+@testset "OhMyPlots.jl" begin
     # Write your tests here.
 end

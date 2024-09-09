@@ -1,14 +1,14 @@
-using PlotMultiLevelData
+using OhMyPlots
 using Documenter
 
-DocMeta.setdocmeta!(PlotMultiLevelData, :DocTestSetup, :(using PlotMultiLevelData); recursive=true)
+DocMeta.setdocmeta!(OhMyPlots, :DocTestSetup, :(using OhMyPlots); recursive=true)
 
 makedocs(;
-    modules=[PlotMultiLevelData],
+    modules=[OhMyPlots],
     authors="maysam-gholampour <meysam.gholampoor@gmail.com> and contributors",
-    sitename="PlotMultiLevelData.jl",
+    sitename="OhMyPlots.jl",
     format=Documenter.HTML(;
-        canonical="https://maysam-gholampour.github.io/PlotMultiLevelData.jl",
+        canonical="https://maysam-gholampour.github.io/OhMyPlots.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -18,6 +18,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/maysam-gholampour/PlotMultiLevelData.jl",
+    repo="github.com/maysam-gholampour/OhMyPlots.jl",
     devbranch="main",
 )

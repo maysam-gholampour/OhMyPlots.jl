@@ -75,6 +75,6 @@ jobs:
         shell: julia --project=docs --color=yes {0}
         run: |
           using Documenter: DocMeta, doctest
-          using PlotMultiLevelData
-          DocMeta.setdocmeta!(PlotMultiLevelData, :DocTestSetup, :(using PlotMultiLevelData); recursive=true)
-          doctest(PlotMultiLevelData)
+          using OhMyPlots
+          DocMeta.setdocmeta!(OhMyPlots, :DocTestSetup, :(using OhMyPlots); recursive=true)
+          doctest(OhMyPlots)
