@@ -6,19 +6,18 @@ abstract type PlotDataAbstract end
 # abstract type PlotDataXYLineAbstract<: PlotDataAbstract end
 # abstract type PlotDataX2YLineAbstract<: PlotDataAbstract end
 
-_P1 = VarAbstract
-_P2 = CurveVarAbstract
 
-struct PlotDataXYLine{T1<:_P1,T2<:_P2}<: PlotDataAbstract
-    XVar::T1
-    YVars::T1
-    CurveVars::T2
+
+struct PlotDataXYLine{S,T,P}<: PlotDataAbstract
+    XVar::Var{S,T}
+    YVars::Var{S,P}
+    CurveVars::CurveVar{S}
 end
 
-struct PlotDataX2YLine{T1<:_P1,T2<:_P2}<: PlotDataAbstract #TODO: complete for 2-axes y in the future
-    XVar::T1
-    Y1Vars::T1
-    Y2Vars::T1
-    CurveVars1::T2
-    CurveVars2::T2
+struct PlotDataX2YLine{P,Q,R,S,T}<: PlotDataAbstract #TODO: complete for 2-axes y in the future
+    XVar::Var{P}
+    Y1Vars::Var{Q}
+    Y2Vars::Var{R}
+    CurveVars1::CurveVar{S}
+    CurveVars2::CurveVar{T}
 end

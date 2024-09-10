@@ -1,25 +1,29 @@
 export VariableAbstract, Var, CurveVar
-export VarAbstract, CurveVarAbstract 
 
 
 abstract type VariableAbstract end
-abstract type VarAbstract<: VariableAbstract end 
-abstract type CurveVarAbstract<: VariableAbstract end
 
-_V1 = AbstractVector{T} where T<:Real
-_V2 = AbstractVector{T} where T<:AbstractString
-_V = Union{_V1, _V2}
 
-struct Var{T1<:AbstractString, T2<:_V}<: VarAbstract
-    name::T1
-    unit::T1
-    value::T2
+struct Var{S<:AbstractString,T<:Union{AbstractFloat,Int, AbstractString}}<: VariableAbstract
+    name::S
+    unit::S
+    value::Vector{T}
 end
 
-_C = Union{Real, AbstractString}
-struct CurveVar{T1<:AbstractString, T2<:_C}<: CurveVarAbstract
-    name::T1
-    unit::T1
-    legend::T1
-    value::T2
+function Var(name::S, unit::S, value::T) where {T<:AbstractRange, S<:AbstractString}
+    _value = collect(value)
+    _eltype = eltype(value)
+    Var{S,_eltype}(name, unit, _value)
+end
+
+
+struct CurveVar{S<:AbstractString} <: VariableAbstract
+    name::S
+    unit::S
+    legend::S
+    value::S
+end
+
+function CurveVar(name::S, unit::S, legend::S, value::T) where {T<:Real,S<:AbstractString}
+    CurveVar{S}(name, unit, legend, string(value))
 end

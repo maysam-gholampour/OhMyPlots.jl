@@ -1,6 +1,6 @@
 using OhMyPlots
 using Test
-using InteractiveUtils: @code_warntype
+using InteractiveUtils: @code_warntype, @code_native,@code_llvm
 
 @testset "plot attributes" begin
 
@@ -59,20 +59,30 @@ using InteractiveUtils: @code_warntype
     title = "title"
     save_path = "save_path"
     save_format = "save_format"
-    is_scatter = true
-    plot_data = Vector{PlotDataXYLine}(undef, 5)
+    plot_data = Vector{PlotDataXYLine{String,Float64,Float64}}(undef, 5)
+
     fill_plot_data!(plot_data)
-    plotAttributes = PlotAttributsXYLine(title, save_path, save_format,is_scatter, plot_data)
+    @code_warntype fill_plot_data!(plot_data)
+  
+    plotAttributes = PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format)
+    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format)
+    @code_llvm PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format)
+    @code_warntype PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format)
+
+    plotAttributes = PlotAttributsXYLine(plot_data, save_path, save_format)
+    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(plot_data, save_path, save_format)
+    @code_llvm PlotAttributsXYLine(plot_data, save_path, save_format)
+    @code_warntype PlotAttributsXYLine(plot_data, save_path, save_format)
 
     @test length(plotAttributes.data) == 5
     @test length(plotAttributes.data[1].XVar.value) == 20
-
     @test is_scatter_test(Val(plotAttributes.is_scatter)) == "scatter plot"
 
     is_scatter = false
-    plotAttributes = PlotAttributsXYLine(title, save_path, save_format,is_scatter, plot_data)
-
-    @test is_scatter_test(Val(plotAttributes.is_scatter)) == "line plot"
+    plotAttributes_ = PlotAttributsXYLine(plot_data, save_path, save_format;is_scatter= is_scatter)
+    @test length(plotAttributes_.data) == 5
+    @test length(plotAttributes_.data[1].XVar.value) == 20
+    @test is_scatter_test(Val(plotAttributes_.is_scatter)) == "line plot"
 
 end
 

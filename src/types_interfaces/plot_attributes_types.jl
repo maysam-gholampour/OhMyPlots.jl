@@ -3,12 +3,24 @@ export PlotAttributsAbstract, PlotAttributsXYLine
 
 abstract type PlotAttributsAbstract end
 
-_PA = AbstractVector{T} where T<:PlotDataAbstract
 
-struct PlotAttributsXYLine{T1<:AbstractString, T2<:Integer, T3<:_PA}<: PlotAttributsAbstract
-    title::T1
-    save_path::T1
-    save_format::T1
-    is_scatter::T2
-    data::T3
+@kwdef struct PlotAttributsXYLine{S,T,P}<: PlotAttributsAbstract
+    data::Vector{PlotDataXYLine{S,T,P}} 
+    save_path::String
+    save_format::String
+    title::Union{String,Nothing} = nothing
+    is_scatter::Bool = true 
+    fontsize::Int = 20
+    ylim::Union{Nothing, Tuple{Float64,Float64}} = nothing
+    xlim::Union{Nothing, Tuple{Float64,Float64}} = nothing
+    legend_labelsize::Int = 20
+    legend_orientation::Symbol = :vertical
+    legend_nbanks::Int = 1
+    legend_position::Symbol = :ct
 end
+
+function PlotAttributsXYLine(data::Vector{PlotDataXYLine{S,T,P}}, save_path::Q,
+        save_format::Q; kwargs...) where {S,T,P,Q<:AbstractString}
+    PlotAttributsXYLine{S,T,P}(data=data, save_path=save_path, save_format=save_format; kwargs...)
+end
+
