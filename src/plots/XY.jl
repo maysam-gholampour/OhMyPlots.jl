@@ -1,3 +1,5 @@
+export XY
+
 
 begin "pallete"
     linestyle_palette = @SVector[:solid,(:dot,:dense) ,:dash, :dashdot,:dashdotdot,(:dot,:loose)]
@@ -8,7 +10,7 @@ begin "pallete"
         curve_names = [d.CurveVars.name for d in data]
         unique_curve_names = unique(curve_names)
         count_each_curve = [count(x->x==curve_name,curve_names) for curve_name in unique_curve_names]
-        if unique(count_each_curve) != 1
+        if length(unique(count_each_curve)) != 1
             error("All curves must have the same number of data points")
         end
         length(unique(curve_names)) , count_each_curve[1]
@@ -16,9 +18,14 @@ begin "pallete"
 
     function _create_pallette(data::Vector{PlotDataXYLine{S,T,P}}) where {S,T,P}
         n_curves,n_each_curve = _count_curves(data)
-        # cycle= Cycle([:strokecolor,:linestyle,:marker], covary=false)
-        palette = (linestyle = linestyle_palette[1:n_curves],marker = marker_palette[1:n_curves],strokecolor = color_palette[1:n_each_curve])
-        palette
+        palette = (linestyle = linestyle_palette[1:n_each_curve],marker = marker_palette[1:n_curves],color = color_palette[1:n_each_curve])
+        color_order = Symbol[]
+        @inbounds for i in 1:n_curves* n_each_curve
+            @inbounds for j in 1:n_each_curve
+                push!(color_order, color_palette[j])
+            end
+        end
+        palette , color_order
     end
 end
 
@@ -81,11 +88,11 @@ begin "pre process"
         _check_xy_vars(data)
         image_path = save_path * "." * save_format
         set_Makie(fontsize)
-        cycle= Cycle([:strokecolor,:linestyle,:marker], covary=false)
-        palette = _create_pallette(data)
+        cycle= Cycle([:linestyle,:marker], covary=false)
+        palette, color_order = _create_pallette(data)
         xy_label = Vector{String}(undef,4)
         xy_label!(first(data),xy_label)
-        image_path,cycle,palette,xy_label
+        image_path,cycle,palette,color_order,xy_label
     end
 end
 
@@ -99,7 +106,7 @@ begin "process"
         ax, fig
     end
 
-    function _draw_scatterlines(data::Vector{PlotDataXYLine{S,T,P}},ax,fig) where {S,T,P}
+    function _draw_scatterlines(data::Vector{PlotDataXYLine{S,T,P}},ax,fig,color_order) where {S,T,P}
         for i in eachindex(data)
             x = data[i].XVar.value
             y = 2 * i .+ data[i].YVars.value
@@ -109,6 +116,7 @@ begin "process"
             curve_value = data[i].CurveVars.value
             label = curve_name * " = " * curve_value * "\t" * curve_unit * " - " * curve_legend
             scatterlines!(ax, x, y; markersize=13, markercolor= :white, strokewidth=2.0,
+                strokecolor = color_order[i], color=color_order[i],
                 label=L"%$label")
         end
         ax,fig
@@ -142,10 +150,10 @@ function XY(Pattr::PlotAttributsXYLine{S,T,P}) where {S,T,P}
     @unpack data,save_path,save_format,title,is_scatter,fontsize,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position = Pattr 
     
     # pro process
-    image_path,cycle,palette,xy_label = _pre_process_figure(data,save_path,save_format,fontsize)
+    image_path,cycle,palette,color_order,xy_label = _pre_process_figure(data,save_path,save_format,fontsize)
     # process 
     ax , fig = _make_fig_ax(cycle,palette,xy_label)
-    ax , fig = _draw_scatterlines(data,ax,fig)
+    ax , fig = _draw_scatterlines(data,ax,fig,color_order)
     # post process
     ax = _post_process_figure(ax,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position)
     # save and return
@@ -153,5 +161,4 @@ function XY(Pattr::PlotAttributsXYLine{S,T,P}) where {S,T,P}
     save(image_path, fig)
     fig 
 end
-
 
