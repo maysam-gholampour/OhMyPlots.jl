@@ -99,10 +99,10 @@ end
 begin "process"
     ax_barier(ax::Axis) = ax
 
-    function _make_fig_ax(cycle,palette,xy_label)
+    function _make_fig_ax(cycle,palette,xy_label,title)
         xlabel,xlabel_unit,ylabel,ylabel_unit = xy_label
         fig = Figure(ScatterLines=(cycle=cycle,),palette = palette)
-        ax = ax_barier(Axis(fig[1, 1], xlabel=L"%$xlabel %$xlabel_unit", ylabel=L"%$ylabel %$ylabel_unit"))
+        ax = ax_barier(Axis(fig[1, 1], xlabel=L"%$xlabel %$xlabel_unit", ylabel=L"%$ylabel %$ylabel_unit",title=title))
         ax, fig
     end
 
@@ -152,7 +152,7 @@ function XY(Pattr::PlotAttributsXYLine{S,T,P}) where {S,T,P}
     # pro process
     image_path,cycle,palette,color_order,xy_label = _pre_process_figure(data,save_path,save_format,fontsize)
     # process 
-    ax , fig = _make_fig_ax(cycle,palette,xy_label)
+    ax , fig = _make_fig_ax(cycle,palette,xy_label,title)
     ax , fig = _draw_scatterlines(data,ax,fig,color_order)
     # post process
     ax = _post_process_figure(ax,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position)

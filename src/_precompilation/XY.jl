@@ -3,20 +3,20 @@ export _preconpile_XY
 
 function fill_C(Name,range,plot_data)
     for i in range
-        name = "X"
-        unit = "[x]"
+        name = L"X"
+        unit = L"[x]"
         value1 = sort(rand(20))
         xVar = Var(name, unit, value1)
 
-        name = "Y"
-        unit = "[y]"
+        name = L"Y"
+        unit = L"[y]"
         value2= rand(20)
         yVar = Var(name, unit, value2)
 
         name = Name
-        unit = "["*Name*"_unit]"
-        legend = Name*"_legend"
-        value3 = Name*"_value"
+        unit = L"[%$name _{unit}]"
+        legend = L"%$name _{legend}"
+        value3 = L"%$name _{value}"
         cVar = CurveVar(name, unit, legend, value3)
 
         plot_data[i] = PlotDataXYLine(xVar, yVar, cVar)
@@ -25,14 +25,14 @@ end
 
 function fill_plot_data!(plot_data,n_curve,n_each_curve)
     for i in 1:n_curve
-        fill_C("C"*string(i),n_each_curve*(i-1)+1:n_each_curve*i,plot_data)
+        fill_C(L"C_%$(string(i))",n_each_curve*(i-1)+1:n_each_curve*i,plot_data)
     end
     nothing
 end
 
 function _preconpile_XY()
-    title = "n_curve = 4 - n_each_curve = 3"
-    save_path = "_precompile/43"
+    title = L"n_{curve} = 4 - n_{each,curve} = 3"
+    save_path = "test/plots_test/images/43"
     save_format = "svg"
     kwargs = Dict(
         :title => title,
@@ -47,7 +47,7 @@ function _preconpile_XY()
     n_curve = 4
     n_each_curve = 3
 
-    plot_data = Vector{PlotDataXYLine{String,Float64,Float64}}(undef, n_curve * n_each_curve)
+    plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
     plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format;kwargs...);
 
