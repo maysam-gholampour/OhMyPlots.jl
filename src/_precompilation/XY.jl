@@ -32,7 +32,7 @@ end
 
 function _preconpile_XY()
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
-    save_path = "test/plots_test/images/43"
+    save_path = "_precompile/43"
     save_format = "svg"
     kwargs = Dict(
         :title => title,
