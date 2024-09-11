@@ -54,10 +54,10 @@ end
 
 begin "pre process"
     function set_Makie(fontsize)
-        fonts = (; regular = "src/plots/asset/fonts/times.ttf",
-                    bold_italic  = "src/plots/asset/fonts/timesbi.ttf",
-                    bold="src/plots/asset/fonts/timesbd.ttf",
-                    italic = "src/plots/asset/fonts/timesi")
+        fonts = (; regular = Makie.assetpath("times.ttf"),
+                    bold_italic  = Makie.assetpath("timesbi.ttf"),
+                    bold=Makie.assetpath("timesbd.ttf"),
+                    italic = Makie.assetpath("timesi"))
         set_theme!(
             size = (600, 480),
             fonts = fonts,
