@@ -8,7 +8,7 @@ abstract type PlotAttributsAbstract end
     data::Vector{PlotDataXYLine{S,T,P}} 
     save_path::String
     save_format::String
-    title::Union{String,Nothing} = nothing
+    title::Union{LaTeXString,Nothing} = nothing
     is_scatter::Bool = true 
     fontsize::Int = 20
     ylim::Union{Nothing, Tuple{Float64,Float64}} = nothing

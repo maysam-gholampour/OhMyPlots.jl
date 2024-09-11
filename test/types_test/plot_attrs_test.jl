@@ -1,45 +1,47 @@
 using OhMyPlots
 using Test
+using LaTeXStrings
 using InteractiveUtils: @code_warntype, @code_native,@code_llvm
+
 
 @testset "plot attributes" begin
 
     function fill_plot_data!(plot_data)
         for i in 1:3
-            name = "X"
-            unit = "[x]"
+            name = L"X"
+            unit = L"[x]"
             value1 = sort(rand(20))
             xVar = Var(name, unit, value1)
 
-            name = "Y"
-            unit = "[y]"
+            name = L"Y"
+            unit = L"[y]"
             value2= rand(20)
             yVar = Var(name, unit, value2)
 
-            name = "C1"
-            unit = "[C1_unit]"
-            legend = "C1_legend"
-            value3 = "C1_value"
+            name = L"C\_1"
+            unit = L"[C1\_unit]"
+            legend = L"C1\_legend"
+            value3 = L"C_1,\_value"
             cVar = CurveVar(name, unit, legend, value3)
 
             plot_data[i] = PlotDataXYLine(xVar, yVar, cVar)
         end
 
         for i in 4:5
-            name = "X"
-            unit = "[x]"
+            name = L"X"
+            unit = L"[x]"
             value4 = sort(rand(20))
             xVar = Var(name, unit, value4)
 
-            name = "Y"
-            unit = "[y]"
+            name = L"Y"
+            unit = L"[y]"
             value5 = rand(20)
             yVar = Var(name, unit, value5)
 
-            name = "C2"
-            unit = "[C2_unit]"
-            legend = "C2_legend"
-            value = "C2_value"
+            name = L"C2"
+            unit = L"[C2\_unit]"
+            legend = L"C2\_legend"
+            value = L"C2\_value"
             cVar = CurveVar(name, unit, legend, value)
 
             plot_data[i] = PlotDataXYLine(xVar, yVar, cVar)
@@ -56,10 +58,10 @@ using InteractiveUtils: @code_warntype, @code_native,@code_llvm
     end
 
     # ================== PlotAttributesXYLine ==================
-    title = "title"
+    title = L"title"
     save_path = "save_path"
     save_format = "save_format"
-    plot_data = Vector{PlotDataXYLine{String,Float64,Float64}}(undef, 5)
+    plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, 5)
 
     fill_plot_data!(plot_data)
     @code_warntype fill_plot_data!(plot_data)

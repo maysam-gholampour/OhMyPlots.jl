@@ -1,24 +1,25 @@
 using Test
 using OhMyPlots
+using LaTeXStrings
 using InteractiveUtils: @code_warntype
 
 
 @testset "PlotDataXYLine" begin
-    name = "X"
-    unit = "[x]"
+    name = L"X"
+    unit = L"[x]"
     value = sort(rand(20))
     xVar = Var(name, unit, value)
     @code_warntype Var(name, unit, value)
 
-    name = "Y"
-    unit = "[y]"
+    name = L"Y"
+    unit = L"[y]"
     value = rand(20)
     yVar = Var(name, unit, value)
     @code_warntype Var(name, unit, value)
 
-    name = "C1"
-    unit = "[-]"
-    legend = "legend"
+    name = L"C_1"
+    unit = L"[-]"
+    legend = L"legend"
     value = 1
     cVar = CurveVar(name, unit, legend, value)
     @code_warntype CurveVar(name, unit, legend, value)

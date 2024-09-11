@@ -1,22 +1,27 @@
 using OhMyPlots
 using Test
 using Makie
+using LaTeXStrings
+
+a = L"X"
+b = L"Y"
+a * b
 
 begin "generate data functions"
     function fill_C(Name,range,plot_data)
         for i in range
-            name = "X"
-            unit = "[x]"
+            name = L"X"
+            unit = L"[x]"
             value1 = sort(rand(20))
             xVar = Var(name, unit, value1)
 
-            name = "Y"
-            unit = "[y]"
+            name = L"Y"
+            unit = L"[y]"
             value2= rand(20)
             yVar = Var(name, unit, value2)
 
             name = Name
-            unit = "["*Name*"_unit]"
+            unit = L"[" * Name * L"_unit]"
             legend = Name*"_legend"
             value3 = Name*"_value"
             cVar = CurveVar(name, unit, legend, value3)
