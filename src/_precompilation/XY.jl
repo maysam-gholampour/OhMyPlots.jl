@@ -32,7 +32,7 @@ end
 
 function _preconpile_XY()
     title = "n_curve = 4 - n_each_curve = 3"
-    save_path = "43"
+    save_path = "_precompile/43"
     save_format = "svg"
     kwargs = Dict(
         :title => title,
