@@ -38,7 +38,7 @@ end
 # Test for plotting
 @testset "Plot Testing n_curve = 4 - n_each_curve = 3" begin
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
-    save_path = "test/plots_test/images/43"
+    save_path = "_precompile/43"
     save_format = "svg"
     kwargs = Dict(
         :title => title,
@@ -76,7 +76,7 @@ end
 
 @testset "Plot Testing n_curve = 3 - n_each_curve = 2" begin
     title = L"n_{curve} = 3 - n_{each,curve} = 2"
-    save_path = "test/plots_test/images/32"
+    save_path = "_precompile/32"
     save_format = "svg"
     kwargs = Dict(
         :title => title,
