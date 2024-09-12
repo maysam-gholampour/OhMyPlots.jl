@@ -40,7 +40,7 @@ end
     kwargs = Dict(
         :title => title,
         :save_path => save_path,
-        :ylim => (0.0, 35.0),
+        :ylim => (0.0, 1.3),
         :legend_labelsize => 14,
         :legend_orientation => :horizontal,
         :legend_nbanks => 2,
@@ -78,7 +78,7 @@ end
     kwargs = Dict(
         :title => title,
         :save_path => save_path,
-        :ylim => (0.0, 20.0),
+        :ylim => (0.0, 1.0),
         :legend_labelsize => 14,
         :legend_orientation => :vertical,
         :legend_nbanks => 2,

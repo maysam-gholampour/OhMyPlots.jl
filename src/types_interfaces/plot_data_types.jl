@@ -10,7 +10,7 @@ abstract type PlotDataAbstract end
 
 struct PlotDataXYLine{S,T,P}<: PlotDataAbstract
     XVar::Var{S,T}
-    YVars::Var{S,P}
+    YVar::Var{S,P}
     CurveVars::CurveVar{S}
 end
 

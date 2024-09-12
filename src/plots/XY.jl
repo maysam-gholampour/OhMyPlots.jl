@@ -28,7 +28,7 @@ begin "checking functions"
     end
 
     function __check_number_of_y_vars(data::Vector{PlotDataXYLine{S,T,P}}) where {S,T,P}
-        y_vars = [d.YVars.name for d in data]
+        y_vars = [d.YVar.name for d in data]
         if length(unique(y_vars)) > 1
             error("All YVars must be the same")
         end
@@ -68,8 +68,8 @@ begin "pre process"
     function xy_label!(data,xy_label)
         xy_label[1] = data.XVar.name
         xy_label[2] = data.XVar.unit
-        xy_label[3] = data.YVars.name
-        xy_label[4] = data.YVars.unit
+        xy_label[3] = data.YVar.name
+        xy_label[4] = data.YVar.unit
         nothing
     end
 
@@ -98,11 +98,7 @@ begin "process"
     function _draw_scatterlines(data::Vector{PlotDataXYLine{S,T,P}},ax,fig,color_order) where {S,T,P}
         for i in eachindex(data)
             x = data[i].XVar.value
-            y = 2 * i .+ data[i].YVars.value
-            # curve_name = data[i].CurveVars.name
-            # curve_unit = data[i].CurveVars.unit
-            # curve_legend = data[i].CurveVars.legend
-            # curve_value = data[i].CurveVars.value
+            y = data[i].YVar.value
             label = data[i].CurveVars.legend
             scatterlines!(ax, x, y; markersize=13, markercolor= :white, strokewidth=2.0,
                 strokecolor = color_order[i], color=color_order[i],
