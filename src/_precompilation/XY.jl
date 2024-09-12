@@ -13,7 +13,7 @@ function fill_C(Name,range,plot_data)
         value2= rand(20)
         yVar = Var(name, unit, value2)
 
-        legend = L"%$name _{legend}"
+        legend = latexstring("$(Name)_$i")
         cVar = CurveVar(legend)
 
         plot_data[i] = PlotDataXYLine(xVar, yVar, cVar)
@@ -34,9 +34,9 @@ function _preconpile_XY()
     kwargs = Dict(
         :title => title,
         :save_path => save_path,
-        :ylim => (0.0, 45.0),
+        :ylim => (0.0, 35.0),
         :legend_labelsize => 14,
-        :legend_orientation => :vertical,
+        :legend_orientation => :horizontal,
         :legend_nbanks => 2,
         :legend_position => :lt,
     )
@@ -46,7 +46,7 @@ function _preconpile_XY()
 
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
-    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format;kwargs...);
+    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
 
     fig = XY(plotAttributes)
     fig
