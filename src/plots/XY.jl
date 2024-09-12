@@ -42,28 +42,28 @@ begin "checking functions"
 end
 
 begin "pre process"
-    function set_Makie(fontsize)
-        fonts = (; regular = Makie.assetpath("times.ttf"),
-                    bold_italic  = Makie.assetpath("timesbi.ttf"),
-                    bold=Makie.assetpath("timesbd.ttf"),
-                    italic = Makie.assetpath("timesi"))
-        set_theme!(
-            size = (600, 480),
-            fonts = fonts,
-            fontsize=fontsize, 
-            font = :bold,
-            Axis=(
-                xlabelsize=32,xlabelpadding=+5,
-                ylabelsize=32,ylabelpadding=+5,
-                xgridstyle=:dash, ygridstyle=:dash,
-                xgridwidth = 1.5, ygridwidth = 1.5,
-                xtickalign=1, ytickalign=1,
-                yticksize=10, xticksize=10,
-            ),
-            Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),merge=true,),
-            Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5) 
-        )
-    end
+    # function set_Makie(fontsize)
+    #     fonts = (; regular = Makie.assetpath("times.ttf"),
+    #                 bold_italic  = Makie.assetpath("timesbi.ttf"),
+    #                 bold=Makie.assetpath("timesbd.ttf"),
+    #                 italic = Makie.assetpath("timesi"))
+    #     set_theme!(
+    #         size = (600, 480),
+    #         fonts = fonts,
+    #         fontsize=fontsize, 
+    #         font = :bold,
+    #         Axis=(
+    #             xlabelsize=32,xlabelpadding=+5,
+    #             ylabelsize=32,ylabelpadding=+5,
+    #             xgridstyle=:dash, ygridstyle=:dash,
+    #             xgridwidth = 1.5, ygridwidth = 1.5,
+    #             xtickalign=1, ytickalign=1,
+    #             yticksize=10, xticksize=10,
+    #         ),
+    #         Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),merge=true,),
+    #         Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5) 
+    #     )
+    # end
 
     function xy_label!(data,xy_label)
         xy_label[1] = data.XVar.name
@@ -73,10 +73,10 @@ begin "pre process"
         nothing
     end
 
-    function _pre_process_figure(data,save_path,save_format,fontsize,n_curve, n_each_curve)
+    function _pre_process_figure(data,save_path,save_format,fontsize,n_curve, n_each_curve) #DELME fontsize
         _check_xy_vars(data)
         image_path = save_path * "." * save_format
-        set_Makie(fontsize)
+        # set_Makie(fontsize) #DELME fontsize
         cycle= Cycle([:linestyle,:marker], covary=false)
         palette, color_order = _create_pallette(data,n_curve, n_each_curve)
         xy_label = Vector{String}(undef,4)
