@@ -17,12 +17,9 @@ using InteractiveUtils: @code_warntype
     yVar = Var(name, unit, value)
     @code_warntype Var(name, unit, value)
 
-    name = L"C_1"
-    unit = L"[-]"
     legend = L"legend"
-    value = 1
-    cVar = CurveVar(name, unit, legend, value)
-    @code_warntype CurveVar(name, unit, legend, value)
+    cVar = CurveVar(legend)
+    @code_warntype CurveVar(legend)
 
     plotData = PlotDataXYLine(xVar, yVar, cVar)
     @code_warntype PlotDataXYLine(xVar, yVar, cVar)

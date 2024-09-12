@@ -13,11 +13,8 @@ function fill_C(Name,range,plot_data)
         value2= rand(20)
         yVar = Var(name, unit, value2)
 
-        name = Name
-        unit = L"[%$name _{unit}]"
         legend = L"%$name _{legend}"
-        value3 = L"%$name _{value}"
-        cVar = CurveVar(name, unit, legend, value3)
+        cVar = CurveVar(legend)
 
         plot_data[i] = PlotDataXYLine(xVar, yVar, cVar)
     end

@@ -18,12 +18,5 @@ end
 
 
 struct CurveVar{S<:AbstractString} <: VariableAbstract
-    name::S
-    unit::S
     legend::S
-    value::S
-end
-
-function CurveVar(name::S, unit::S, legend::S, value::T) where {T<:Real,S<:AbstractString}
-    CurveVar{S}(name, unit, legend, L"%$(string(value))")
 end

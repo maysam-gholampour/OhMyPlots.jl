@@ -17,10 +17,12 @@ abstract type PlotAttributsAbstract end
     legend_orientation::Symbol = :vertical
     legend_nbanks::Int = 1
     legend_position::Symbol = :ct
+    n_curve::Int
+    n_each_curve::Int
 end
 
 function PlotAttributsXYLine(data::Vector{PlotDataXYLine{S,T,P}}, save_path::Q,
-        save_format::Q; kwargs...) where {S,T,P,Q<:AbstractString}
-    PlotAttributsXYLine{S,T,P}(data=data, save_path=save_path, save_format=save_format; kwargs...)
+        save_format::Q, n_curve::Int,n_each_curve::Int; kwargs...) where {S,T,P,Q<:AbstractString}
+    PlotAttributsXYLine{S,T,P}(data=data, save_path=save_path, save_format=save_format,n_curve=n_curve, n_each_curve = n_each_curve; kwargs...)
 end
 

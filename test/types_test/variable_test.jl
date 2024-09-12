@@ -23,22 +23,9 @@ using InteractiveUtils: @code_warntype
 end
 
 @testset "CurveVar" begin
-    name = L"C_1"
-    unit = L"[-]"
     legend = L"legend"
-    value = 1
-    var = CurveVar(name, unit, legend, value)
-    @code_warntype CurveVar(name, unit, legend, value)
-    @test var.value == L"%$(string(value))"
-
-    value = 1.0
-    var = CurveVar(name, unit, legend, value)
-    @code_warntype CurveVar(name, unit, legend, value)
-    @test var.value == L"%$(string(value))"
-
-    value = L"C1"
-    var = CurveVar(name, unit, legend, value)
-    @code_warntype CurveVar(name, unit, legend, value)
-    @test var.value == value
+    var = CurveVar(legend)
+    @code_warntype CurveVar(legend)
+    @test var.legend == L"legend"
 end
 

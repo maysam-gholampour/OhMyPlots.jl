@@ -17,11 +17,8 @@ begin "generate data functions"
             value2= rand(20)
             yVar = Var(name, unit, value2)
 
-            name = Name
-            unit = L"[%$name _{unit}]"
-            legend = L"%$name _{legend}"
-            value3 = L"%$name _{value}"
-            cVar = CurveVar(name, unit, legend, value3)
+            legend = latexstring("$(Name)_$i")
+            cVar = CurveVar(legend)
 
             plot_data[i] = PlotDataXYLine(xVar, yVar, cVar)
         end
@@ -43,9 +40,9 @@ end
     kwargs = Dict(
         :title => title,
         :save_path => save_path,
-        :ylim => (0.0, 45.0),
+        :ylim => (0.0, 35.0),
         :legend_labelsize => 14,
-        :legend_orientation => :vertical,
+        :legend_orientation => :horizontal,
         :legend_nbanks => 2,
         :legend_position => :lt,
     )
@@ -55,7 +52,7 @@ end
 
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
-    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format;kwargs...);
+    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
 
     fig = XY(plotAttributes)
 
@@ -93,7 +90,7 @@ end
 
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
-    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format;kwargs...);
+    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
 
     fig = XY(plotAttributes)
 

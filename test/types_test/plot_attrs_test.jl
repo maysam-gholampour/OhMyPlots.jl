@@ -18,16 +18,13 @@ using InteractiveUtils: @code_warntype, @code_native,@code_llvm
             value2= rand(20)
             yVar = Var(name, unit, value2)
 
-            name = L"C\_1"
-            unit = L"[C1\_unit]"
             legend = L"C1\_legend"
-            value3 = L"C_1,\_value"
-            cVar = CurveVar(name, unit, legend, value3)
+            cVar = CurveVar(legend)
 
             plot_data[i] = PlotDataXYLine(xVar, yVar, cVar)
         end
 
-        for i in 4:5
+        for i in 4:6
             name = L"X"
             unit = L"[x]"
             value4 = sort(rand(20))
@@ -38,11 +35,8 @@ using InteractiveUtils: @code_warntype, @code_native,@code_llvm
             value5 = rand(20)
             yVar = Var(name, unit, value5)
 
-            name = L"C2"
-            unit = L"[C2\_unit]"
             legend = L"C2\_legend"
-            value = L"C2\_value"
-            cVar = CurveVar(name, unit, legend, value)
+            cVar = CurveVar(legend)
 
             plot_data[i] = PlotDataXYLine(xVar, yVar, cVar)
         end
@@ -61,28 +55,31 @@ using InteractiveUtils: @code_warntype, @code_native,@code_llvm
     title = L"title"
     save_path = "save_path"
     save_format = "save_format"
-    plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, 5)
+    n_curve = 2
+    n_each_curve = 3
+    plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
 
     fill_plot_data!(plot_data)
     @code_warntype fill_plot_data!(plot_data)
-  
-    plotAttributes = PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format)
-    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format)
-    @code_llvm PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format)
-    @code_warntype PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format)
 
-    plotAttributes = PlotAttributsXYLine(plot_data, save_path, save_format)
-    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(plot_data, save_path, save_format)
-    @code_llvm PlotAttributsXYLine(plot_data, save_path, save_format)
-    @code_warntype PlotAttributsXYLine(plot_data, save_path, save_format)
+    plotAttributes = PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format, n_curve=n_curve, n_each_curve=n_each_curve)
+    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format, n_curve=n_curve, n_each_curve=n_each_curve)
+    @code_llvm PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format, n_curve=n_curve, n_each_curve=n_each_curve)
+    @code_warntype PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format, n_curve=n_curve, n_each_curve=n_each_curve)
 
-    @test length(plotAttributes.data) == 5
+
+    plotAttributes = PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve)
+    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve)
+    @code_llvm PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve)
+    @code_warntype PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve)
+
+    @test length(plotAttributes.data) == 6
     @test length(plotAttributes.data[1].XVar.value) == 20
     @test is_scatter_test(Val(plotAttributes.is_scatter)) == "scatter plot"
 
     is_scatter = false
-    plotAttributes_ = PlotAttributsXYLine(plot_data, save_path, save_format;is_scatter= is_scatter)
-    @test length(plotAttributes_.data) == 5
+    plotAttributes_ = PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve;is_scatter= is_scatter)
+    @test length(plotAttributes_.data) == 6
     @test length(plotAttributes_.data[1].XVar.value) == 20
     @test is_scatter_test(Val(plotAttributes_.is_scatter)) == "line plot"
 
