@@ -10,7 +10,6 @@ abstract type PlotAttributsAbstract end
     save_format::String
     title::Union{LaTeXString,Nothing} = nothing
     is_scatter::Bool = true 
-    fontsize::Int = 20 #DELME 
     ylim::Union{Nothing, Tuple{Float64,Float64}} = nothing
     xlim::Union{Nothing, Tuple{Float64,Float64}} = nothing
     legend_labelsize::Int = 20

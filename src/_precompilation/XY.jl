@@ -1,4 +1,4 @@
-export _preconpile_XY
+export _precompile_XY
 
 
 function fill_C(Name,range,plot_data)
@@ -27,7 +27,7 @@ function fill_plot_data!(plot_data,n_curve,n_each_curve)
     nothing
 end
 
-function _preconpile_XY()
+# function _precompile_XY()
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
     save_path = "_precompile/43"
     save_format = "svg"
@@ -50,4 +50,4 @@ function _preconpile_XY()
 
     fig = XY(plotAttributes)
     fig
-end
+# end

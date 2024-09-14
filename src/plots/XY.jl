@@ -42,28 +42,6 @@ begin "checking functions"
 end
 
 begin "pre process"
-    # function set_Makie(fontsize)
-    #     fonts = (; regular = Makie.assetpath("times.ttf"),
-    #                 bold_italic  = Makie.assetpath("timesbi.ttf"),
-    #                 bold=Makie.assetpath("timesbd.ttf"),
-    #                 italic = Makie.assetpath("timesi"))
-    #     set_theme!(
-    #         size = (600, 480),
-    #         fonts = fonts,
-    #         fontsize=fontsize, 
-    #         font = :bold,
-    #         Axis=(
-    #             xlabelsize=32,xlabelpadding=+5,
-    #             ylabelsize=32,ylabelpadding=+5,
-    #             xgridstyle=:dash, ygridstyle=:dash,
-    #             xgridwidth = 1.5, ygridwidth = 1.5,
-    #             xtickalign=1, ytickalign=1,
-    #             yticksize=10, xticksize=10,
-    #         ),
-    #         Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),merge=true,),
-    #         Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5) 
-    #     )
-    # end
 
     function xy_label!(data,xy_label)
         xy_label[1] = data.XVar.name
@@ -73,10 +51,9 @@ begin "pre process"
         nothing
     end
 
-    function _pre_process_figure(data,save_path,save_format,fontsize,n_curve, n_each_curve) #DELME fontsize
+    function _pre_process_figure(data,save_path,save_format,n_curve, n_each_curve)
         _check_xy_vars(data)
         image_path = save_path * "." * save_format
-        # set_Makie(fontsize) #DELME fontsize
         cycle= Cycle([:linestyle,:marker], covary=false)
         palette, color_order = _create_pallette(data,n_curve, n_each_curve)
         xy_label = Vector{String}(undef,4)
@@ -100,7 +77,8 @@ begin "process"
             x = data[i].XVar.value
             y = data[i].YVar.value
             label = data[i].CurveVars.legend
-            scatterlines!(ax, x, y; markersize=13, markercolor= :white, strokewidth=2.0,
+            scatterlines!(ax, x, y; 
+                # markersize=13, markercolor= :white, strokewidth=2.0,
                 strokecolor = color_order[i], color=color_order[i],
                 label=L"%$label")
         end
@@ -123,7 +101,8 @@ begin "yx limit functions and post process"
     _apply_xlims(ax::Axis,x::Nothing) = ax
 
     function _post_process_figure(ax,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position)
-        axislegend(;position=legend_position, nbanks=legend_nbanks, labelsize=legend_labelsize,orientation = legend_orientation)
+        # axislegend(;position=legend_position, nbanks=legend_nbanks, labelsize=legend_labelsize,orientation = legend_orientation)
+        axislegend()
         ax = _apply_ylims(ax,ylim)
         ax = _apply_xlims(ax,xlim)
         ax
@@ -132,10 +111,10 @@ begin "yx limit functions and post process"
 end
 
 function XY(Pattr::PlotAttributsXYLine{S,T,P}) where {S,T,P}
-    @unpack data,save_path,save_format,title,is_scatter,fontsize,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position, n_curve, n_each_curve = Pattr
+    @unpack data,save_path,save_format,title,is_scatter,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position, n_curve, n_each_curve = Pattr
     
-    # pro process
-    image_path,cycle,palette,color_order,xy_label = _pre_process_figure(data,save_path,save_format,fontsize,n_curve, n_each_curve)
+    # pre process
+    image_path,cycle,palette,color_order,xy_label = _pre_process_figure(data,save_path,save_format,n_curve, n_each_curve)
     # process 
     ax , fig = _make_fig_ax(cycle,palette,xy_label,title)
     ax , fig = _draw_scatterlines(data,ax,fig,color_order)

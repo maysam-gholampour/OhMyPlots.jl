@@ -91,8 +91,28 @@ end
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
     plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
-
+    xY_Line_Scatter_Theme = XY_Line_Scatter_Theme()
+    set_theme!(xY_Line_Scatter_Theme)
     fig = XY(plotAttributes)
+
+    xY_Line_Scatter_Theme = XY_Line_Scatter_Theme(markersize=15)    
+    set_theme!(xY_Line_Scatter_Theme)
+    fig = XY(plotAttributes)
+
+
+    axislegend(;position=:cb, nbanks=2, labelsize=14,orientation = :horizontal)
+    fig
+    @test length(fig.content) == 3
+    delete!(fig.content[2])
+    @test length(fig.content) == 2
+    fig
+
+    fig.content[2].halign = :center
+    fig.content[2].valign = :top
+    fig
+    # for i in 1:length(fig.content[1].scene.plots)
+    #     fig.content[1].scene.plots[i].markersize = 13
+    # end
 
     # Check if figure has content
     @test length(fig.content) > 0
@@ -107,6 +127,8 @@ end
     @test (@inferred XY(plotAttributes)) isa Makie.Figure
 
 end
+
+
 
 
 

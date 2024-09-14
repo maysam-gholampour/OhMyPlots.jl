@@ -25,11 +25,16 @@ axis=(
         yticksize=10, xticksize=10,
         markersize=16, markercolor= :white, strokewidth=2.0, 
         )
-Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),merge=true,position=:lt, nbanks=2)
+Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),position=:lt, nbanks=2)
 Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5)
+markersize = 8
+markercolor= :white
+strokewidth=2.0
 
 
-XY_Theme = Theme(
+function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle,
+     palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth)
+    Theme(
     size = size,
     fonts = fonts,
     fontsize=fontsize, 
@@ -41,25 +46,21 @@ XY_Theme = Theme(
     Scatter=(cycle=cycle,),
     ScatterLines=(cycle=cycle,),
     palette = palette
-);
+    )
+end
 
-
-XY_Line_Scatter_Theme = Theme(
-    size = size,
-    fonts = fonts,
-    fontsize=fontsize, 
-    font = font,
-    Axis=(
-        xlabelsize=28,xlabelpadding=+5,
-        ylabelsize=28,ylabelpadding=+5,
-        xgridstyle=:dash, ygridstyle=:dash,
-        xgridwidth = 1.5, ygridwidth = 1.5,
-        xtickalign=1, ytickalign=1,
-        yticksize=10, xticksize=10,
-            ),
-    Legend = Legend,
-    Colorbar = Colorbar,
-    );
-
-
-
+function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle, palette=palette,
+     markersize=markersize, markercolor=markercolor, strokewidth=strokewidth)
+    Theme(
+        font = font,
+        fonts = fonts,
+        fontsize = fontsize,
+        markersize = markersize,
+        markercolor= markercolor,
+        strokewidth=strokewidth,
+        size = size,
+        Axis=axis,
+        Legend = Legend,
+        Colorbar = Colorbar,
+    )
+end

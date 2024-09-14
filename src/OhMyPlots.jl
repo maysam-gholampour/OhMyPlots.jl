@@ -1,10 +1,11 @@
 module OhMyPlots
-    __precompile__(true)
+    __precompile__(false)
     using PrecompileTools: @setup_workload, @compile_workload  
 
     using StaticArrays
     using CairoMakie
     using Makie
+    using Makie:texfont
     using LaTeXStrings
     using UnPack: @unpack
 
@@ -15,7 +16,7 @@ module OhMyPlots
     @setup_workload begin
         @compile_workload begin
             include("_precompilation/_precompile.jl")
-            _preconpile_XY()
+            _precompile_XY()
         end
     end
 

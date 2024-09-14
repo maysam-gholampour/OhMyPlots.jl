@@ -23,7 +23,7 @@ set_theme!(XY_Theme)
 plot_without_theme()
 
 # modify the attribute in the theme which is  in top layer
-set_theme!(XY_Theme; fontsize= 20)
+set_theme!(XY_Theme; theme= 20)
 plot_without_theme()
 
 # modify the attribute in the theme which is in sublayers
