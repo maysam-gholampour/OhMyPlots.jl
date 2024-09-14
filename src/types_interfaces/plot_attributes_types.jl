@@ -12,10 +12,6 @@ abstract type PlotAttributsAbstract end
     is_scatter::Bool = true 
     ylim::Union{Nothing, Tuple{Float64,Float64}} = nothing
     xlim::Union{Nothing, Tuple{Float64,Float64}} = nothing
-    legend_labelsize::Int = 20
-    legend_orientation::Symbol = :vertical
-    legend_nbanks::Int = 1
-    legend_position::Symbol = :ct
     n_curve::Int
     n_each_curve::Int
 end

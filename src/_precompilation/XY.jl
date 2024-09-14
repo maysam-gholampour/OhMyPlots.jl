@@ -27,7 +27,7 @@ function fill_plot_data!(plot_data,n_curve,n_each_curve)
     nothing
 end
 
-# function _precompile_XY()
+function _precompile_XY()
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
     save_path = "_precompile/43"
     save_format = "svg"
@@ -35,10 +35,6 @@ end
         :title => title,
         :save_path => save_path,
         :ylim => (0.0, 35.0),
-        :legend_labelsize => 14,
-        :legend_orientation => :horizontal,
-        :legend_nbanks => 2,
-        :legend_position => :lt,
     )
 
     n_curve = 4
@@ -50,4 +46,4 @@ end
 
     fig = XY(plotAttributes)
     fig
-# end
+end

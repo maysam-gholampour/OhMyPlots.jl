@@ -100,7 +100,7 @@ begin "yx limit functions and post process"
     _apply_ylims(ax::Axis,x::Nothing) = ax
     _apply_xlims(ax::Axis,x::Nothing) = ax
 
-    function _post_process_figure(ax,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position)
+    function _post_process_figure(ax,ylim,xlim)
         # axislegend(;position=legend_position, nbanks=legend_nbanks, labelsize=legend_labelsize,orientation = legend_orientation)
         axislegend()
         ax = _apply_ylims(ax,ylim)
@@ -111,7 +111,7 @@ begin "yx limit functions and post process"
 end
 
 function XY(Pattr::PlotAttributsXYLine{S,T,P}) where {S,T,P}
-    @unpack data,save_path,save_format,title,is_scatter,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position, n_curve, n_each_curve = Pattr
+    @unpack data,save_path,save_format,title,is_scatter,ylim,xlim, n_curve, n_each_curve = Pattr
     
     # pre process
     image_path,cycle,palette,color_order,xy_label = _pre_process_figure(data,save_path,save_format,n_curve, n_each_curve)
@@ -119,7 +119,7 @@ function XY(Pattr::PlotAttributsXYLine{S,T,P}) where {S,T,P}
     ax , fig = _make_fig_ax(cycle,palette,xy_label,title)
     ax , fig = _draw_scatterlines(data,ax,fig,color_order)
     # post process
-    ax = _post_process_figure(ax,ylim,xlim,legend_labelsize,legend_orientation,legend_nbanks,legend_position)
+    ax = _post_process_figure(ax,ylim,xlim)
     # save and return
     trim!(fig.layout)
     save(image_path, fig)

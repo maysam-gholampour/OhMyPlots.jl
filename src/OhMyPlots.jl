@@ -1,5 +1,5 @@
 module OhMyPlots
-    __precompile__(false)
+    __precompile__(true)
     using PrecompileTools: @setup_workload, @compile_workload  
 
     using StaticArrays

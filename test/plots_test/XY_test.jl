@@ -41,10 +41,6 @@ end
         :title => title,
         :save_path => save_path,
         :ylim => (0.0, 1.3),
-        :legend_labelsize => 14,
-        :legend_orientation => :horizontal,
-        :legend_nbanks => 2,
-        :legend_position => :lt,
     )
 
     n_curve = 4
@@ -79,10 +75,6 @@ end
         :title => title,
         :save_path => save_path,
         :ylim => (0.0, 1.0),
-        :legend_labelsize => 14,
-        :legend_orientation => :vertical,
-        :legend_nbanks => 2,
-        :legend_position => :lt,
     )
 
     n_curve = 3
