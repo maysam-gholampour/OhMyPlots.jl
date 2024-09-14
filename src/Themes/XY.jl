@@ -25,7 +25,8 @@ axis=(
         yticksize=10, xticksize=10,
         markersize=16, markercolor= :white, strokewidth=2.0, 
         )
-Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),position=:lt, nbanks=2)
+Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
+        position=:lt, nbanks=2,Labelszie=14)
 Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5)
 markersize = 8
 markercolor= :white
