@@ -30,8 +30,6 @@ position=:lt
 nbanks=2
 labelszie=14
 
-
-
 Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5)
 markersize = 8
 markercolor= :white
@@ -68,7 +66,7 @@ function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=
         size = size,
         Axis=axis,
         Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
-            position=position, nbanks=nbanks,labelszie=labelszie),
+            position=position, nbanks=nbanks,labelszie=labelszie),#NOTE: This is the default legend theme
         Colorbar = Colorbar,
     )
 end
