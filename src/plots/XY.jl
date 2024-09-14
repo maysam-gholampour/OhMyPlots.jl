@@ -102,7 +102,7 @@ begin "yx limit functions and post process"
 
     function _post_process_figure(ax,ylim,xlim)
         # axislegend(;position=legend_position, nbanks=legend_nbanks, labelsize=legend_labelsize,orientation = legend_orientation)
-        axislegend()
+        # axislegend()
         ax = _apply_ylims(ax,ylim)
         ax = _apply_xlims(ax,xlim)
         ax
