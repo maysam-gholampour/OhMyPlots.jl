@@ -27,8 +27,9 @@ axis=(
         )
 
 position=:lt
-nbanks=2
+nbanks=3
 labelsize=12
+orientation=:horizontal
 
 Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5)
 markersize = 8
@@ -37,7 +38,7 @@ strokewidth=2.0
 
 
 function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle,
-     palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize)
+     palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation)
     Theme(
     size = size,
     fonts = fonts,
@@ -45,7 +46,7 @@ function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=ax
     font = font,
     Axis=axis,
     Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
-            position=position, nbanks=nbanks,labelsize=labelsize),
+            position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation),#NOTE: This is the default legend theme
     Colorbar = Colorbar,
     Lines=(cycle=cycle,),
     Scatter=(cycle=cycle,),
@@ -66,7 +67,7 @@ function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=
         size = size,
         Axis=axis,
         Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
-            position=position, nbanks=nbanks,labelsize=labelsize),#NOTE: This is the default legend theme
+            position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation),#NOTE: This is the default legend theme
         Colorbar = Colorbar,
     )
 end

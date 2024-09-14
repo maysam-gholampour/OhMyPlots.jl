@@ -1,7 +1,7 @@
 name = "OhMyPlots"
 uuid = "3292c6e5-1d77-4047-8b42-5eee4ea8e1b6"
 authors = ["maysam-gholampour <meysam.gholampoor@gmail.com> and contributors"]
-version = "1.0.0-DEV"
+version = "1.0.1"
 
 [deps]
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
