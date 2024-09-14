@@ -25,8 +25,13 @@ axis=(
         yticksize=10, xticksize=10,
         markersize=16, markercolor= :white, strokewidth=2.0, 
         )
-Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
-        position=:lt, nbanks=2,labelszie=14)
+
+position=:lt
+nbanks=2
+labelszie=14
+
+
+
 Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5)
 markersize = 8
 markercolor= :white
@@ -34,14 +39,15 @@ strokewidth=2.0
 
 
 function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle,
-     palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth)
+     palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelszie=labelszie)
     Theme(
     size = size,
     fonts = fonts,
     fontsize=fontsize, 
     font = font,
     Axis=axis,
-    Legend = Legend,
+    Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
+            position=position, nbanks=nbanks,labelszie=labelszie),
     Colorbar = Colorbar,
     Lines=(cycle=cycle,),
     Scatter=(cycle=cycle,),
@@ -51,7 +57,7 @@ function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=ax
 end
 
 function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle, palette=palette,
-     markersize=markersize, markercolor=markercolor, strokewidth=strokewidth)
+     markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelszie=labelszie)
     Theme(
         font = font,
         fonts = fonts,
@@ -61,7 +67,8 @@ function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=
         strokewidth=strokewidth,
         size = size,
         Axis=axis,
-        Legend = Legend,
+        Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
+            position=position, nbanks=nbanks,labelszie=labelszie),
         Colorbar = Colorbar,
     )
 end
