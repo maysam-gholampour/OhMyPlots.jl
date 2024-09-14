@@ -19,6 +19,4 @@ module OhMyPlots
             _precompile_XY()
         end
     end
-
-
 end
