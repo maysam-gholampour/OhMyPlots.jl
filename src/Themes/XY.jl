@@ -56,7 +56,7 @@ function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=ax
 end
 
 function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle, palette=palette,
-     markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize)
+     markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation)
     Theme(
         font = font,
         fonts = fonts,
