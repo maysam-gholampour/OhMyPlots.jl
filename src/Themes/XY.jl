@@ -17,8 +17,8 @@ fonts = fonts
 fontsize=20
 font = :bold
 axis=(
-        xlabelsize=32,xlabelpadding=+5,
-        ylabelsize=32,ylabelpadding=+5,
+        xlabelsize=28,xlabelpadding=+5,
+        ylabelsize=28,ylabelpadding=+5,
         xgridstyle=:dash, ygridstyle=:dash,
         xgridwidth = 1.5, ygridwidth = 1.5,
         xtickalign=1, ytickalign=1,
@@ -50,8 +50,8 @@ XY_Line_Scatter_Theme = Theme(
     fontsize=fontsize, 
     font = font,
     Axis=(
-        xlabelsize=32,xlabelpadding=+5,
-        ylabelsize=32,ylabelpadding=+5,
+        xlabelsize=28,xlabelpadding=+5,
+        ylabelsize=28,ylabelpadding=+5,
         xgridstyle=:dash, ygridstyle=:dash,
         xgridwidth = 1.5, ygridwidth = 1.5,
         xtickalign=1, ytickalign=1,
