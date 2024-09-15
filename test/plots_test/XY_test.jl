@@ -1,8 +1,11 @@
-using OhMyPlots
-using Test
-using Makie
-using LaTeXStrings
-using CairoMakie
+begin "using packages"
+
+    using OhMyPlots
+    using Test
+    using Makie
+    using LaTeXStrings
+    using CairoMakie
+end
 
 
 begin "generate data functions"
@@ -100,7 +103,7 @@ end
     fig
     
 
-    xY_Line_Scatter_Theme = XY_Line_Scatter_Theme(markersize=15)    
+    xY_Line_Scatter_Theme = XY_Line_Scatter_Theme(markersize=20)    
     set_theme!(xY_Line_Scatter_Theme)
     fig = XY(plotAttributes)
 

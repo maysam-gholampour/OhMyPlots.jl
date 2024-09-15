@@ -207,7 +207,7 @@ begin "process"
             y = data[i].YVar.value
             label = data[i].CurveVars.legend
             scatterlines!(ax, x, y; 
-                # markersize=13, markercolor= :white, strokewidth=2.0,
+                markercolor= :white, strokewidth=2.0,
                 strokecolor = color_order[i], color=color_order[i],
                 label=L"%$label")
         end
