@@ -2,6 +2,7 @@ using OhMyPlots
 using Test
 using Makie
 using LaTeXStrings
+using CairoMakie
 
 
 begin "generate data functions"
@@ -84,8 +85,20 @@ end
     fill_plot_data!(plot_data,n_curve,n_each_curve)
     plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
     xY_Line_Scatter_Theme = XY_Line_Scatter_Theme()
-    set_theme!(xY_Line_Scatter_Theme)
+    set_theme!(xY_Line_Scatter_Theme, size=(600,480))
     fig = XY(plotAttributes)
+    leg = fig.content[2]
+    delete!(leg)
+    fig
+    ax = fig.content[1]
+    fig
+    resize_to_layout!(fig)
+    resize!(fig.scene, (700, 480))
+    trim!(fig.layout)
+    fig
+    Legend(fig[1,2],ax;nbanks=1, labelsize=16,orientation = :vertical)
+    fig
+    
 
     xY_Line_Scatter_Theme = XY_Line_Scatter_Theme(markersize=15)    
     set_theme!(xY_Line_Scatter_Theme)
@@ -121,19 +134,58 @@ end
 end
 
 
+#NOTE: DO NOT DELETE THIS COMMENT
+#= begin "how to create plot with legend outside and then delete it and create legend inside starting with legend outside"
 
+    # markersize = 12
+    # markercolor= :white
+    # strokewidth=2.0
+    set_theme!(XY_Line_Scatter_Theme(size=(700,480),markersize=15)) 
+    x = 1:0.1:10
+    y = sin.(x)
+    fig = Figure()
+    ax = Axis(fig[1,1],
+        xlabel=L"x", ylabel=L"f(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)\,\,\,\,\,sin(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)")
+    Legend(fig[1,2],ax;nbanks=1, labelsize=16,orientation = :vertical)
+    fig
+    save("test.svg",fig)
+    delete!(fig.content[2])
+    fig
+    resize_to_layout!(fig)
+    resize!(fig.scene, (600, 480))
+    trim!(fig.layout)
+    fig
+    axislegend(;position=:lt, nbanks=2, labelsize=14,orientation = :horizontal)
+    fig
 
+    # methodswith(Scene) #NOTE : to see all methods of Scene
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+begin "how to create plot with legend outside and then delete it and create legend inside starting with legend inside"
+    set_theme!(XY_Line_Scatter_Theme()) 
+    x = 1:0.1:10
+    y = sin.(x)
+    fig = Figure()
+    ax = Axis(fig[1,1],
+        xlabel=L"x", ylabel=L"f(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)\,\,\,\,\,sin(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)")
+    scatterlines!(ax, x, rand() * y, label = L"sin(x)")
+    axislegend()       
+    fig
+    save("test.svg",fig)
+    delete!(fig.content[2])
+    fig
+    resize_to_layout!(fig)
+    resize!(fig.scene, (700, 480))
+    trim!(fig.layout)
+    fig
+    Legend(fig[1,2],ax;nbanks=1, labelsize=16,orientation = :vertical)
+    fig
+end =#

@@ -23,7 +23,6 @@ axis=(
         xgridwidth = 1.5, ygridwidth = 1.5,
         xtickalign=1, ytickalign=1,
         yticksize=10, xticksize=10,
-        markersize=16, markercolor= :white, strokewidth=2.0, 
         )
 
 position=:lt
@@ -35,7 +34,7 @@ Colorbar = (ticksize=16, tickalign=1, spinewidth=0.5)
 markersize = 8
 markercolor= :white
 strokewidth=2.0
-
+leg_alignmode = Outside()
 
 """
 XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle,
@@ -79,12 +78,16 @@ XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legen
     color_palette = [:red, :blue, :black,:green,:orange,:pink]
 """
 function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle,
-     palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation)
+     palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position,
+      nbanks=nbanks,labelsize=labelsize, orientation=orientation)
     Theme(
     size = size,
     fonts = fonts,
     fontsize=fontsize, 
     font = font,
+    markersize = markersize,
+    markercolor= markercolor,
+    strokewidth=strokewidth,
     Axis=axis,
     Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
             position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation),#NOTE: This is the default legend theme
@@ -136,7 +139,8 @@ XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axi
     - orientation: Symbol = :horizontal
 """
 function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle, palette=palette,
-     markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation)
+     markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize,
+      orientation=orientation,leg_alignmode=leg_alignmode)
     Theme(
         font = font,
         fonts = fonts,
@@ -147,7 +151,8 @@ function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=
         size = size,
         Axis=axis,
         Legend = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
-            position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation),#NOTE: This is the default legend theme
+            position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation,
+            leg_alignmode = leg_alignmode),#NOTE: This is the default legend theme
         Colorbar = Colorbar,
     )
 end
