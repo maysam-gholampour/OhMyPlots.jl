@@ -1,13 +1,21 @@
 export PlotDataAbstract, PlotDataXYLine, PlotDataX2YLine
-# export PlotDataXYLineAbstract, PlotDataX2YLineAbstract
+
 
 
 abstract type PlotDataAbstract end
-# abstract type PlotDataXYLineAbstract<: PlotDataAbstract end
-# abstract type PlotDataX2YLineAbstract<: PlotDataAbstract end
 
 
+"""
+    struct PlotDataXYLine{S,T,P}<: PlotDataAbstract
 
+The `PlotDataXYLine` struct represents a type of plot data for XY line plots.
+
+# Fields
+- `XVar::Var{S,T}`: The variable representing the X-axis data.
+- `YVar::Var{S,P}`: The variable representing the Y-axis data.
+- `CurveVars::CurveVar{S}`: The variable representing the curve data.
+
+"""
 struct PlotDataXYLine{S,T,P}<: PlotDataAbstract
     XVar::Var{S,T}
     YVar::Var{S,P}

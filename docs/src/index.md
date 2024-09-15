@@ -6,9 +6,10 @@ CurrentModule = OhMyPlots
 
 Documentation for [OhMyPlots](https://github.com/maysam-gholampour/OhMyPlots.jl).
 
-```@index
+## Install
+
+```julia-repl
+pkg> add https://github.com/maysam-gholampour/OhMyPlots.jl
 ```
 
-```@autodocs
-Modules = [OhMyPlots]
-```
+

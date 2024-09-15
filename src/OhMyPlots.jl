@@ -1,5 +1,10 @@
+"""
+    OhMyPlots
+
+This module ]provides a set of tools to create beautiful plots using Makie.jl.
+"""
 module OhMyPlots
-    __precompile__(true)
+    __precompile__(false)
     using PrecompileTools: @setup_workload, @compile_workload  
 
     using StaticArrays
