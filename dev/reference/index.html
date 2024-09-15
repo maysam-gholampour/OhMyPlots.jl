@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Reference · OhMyPlots.jl</title><meta name="title" content="Reference · OhMyPlots.jl"/><meta property="og:title" content="Reference · OhMyPlots.jl"/><meta property="twitter:title" content="Reference · OhMyPlots.jl"/><meta name="description" content="Documentation for OhMyPlots.jl."/><meta property="og:description" content="Documentation for OhMyPlots.jl."/><meta property="twitter:description" content="Documentation for OhMyPlots.jl."/><meta property="og:url" content="https://maysam-gholampour.github.io/OhMyPlots.jl/reference/"/><meta property="twitter:url" content="https://maysam-gholampour.github.io/OhMyPlots.jl/reference/"/><link rel="canonical" href="https://maysam-gholampour.github.io/OhMyPlots.jl/reference/"/><script data-outdated-warner src="../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL=".."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../assets/documenter.js"></script><script src="../search_index.js"></script><script src="../siteinfo.js"></script><script src="../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../">OhMyPlots.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../">Home</a></li><li class="is-active"><a class="tocitem" href>Reference</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li class="is-active"><a href>Reference</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Reference</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/maysam-gholampour/OhMyPlots.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/main/docs/src/reference.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><ul><li><a href="#OhMyPlots.OhMyPlots"><code>OhMyPlots.OhMyPlots</code></a></li><li><a href="#OhMyPlots.linestyle_palette"><code>OhMyPlots.linestyle_palette</code></a></li><li><a href="#OhMyPlots.CurveVar"><code>OhMyPlots.CurveVar</code></a></li><li><a href="#OhMyPlots.PlotAttributsXYLine"><code>OhMyPlots.PlotAttributsXYLine</code></a></li><li><a href="#OhMyPlots.PlotAttributsXYLine-Union{Tuple{Q}, Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Q, Q, Int64, Int64}} where {S, T, P, Q&lt;:AbstractString}"><code>OhMyPlots.PlotAttributsXYLine</code></a></li><li><a href="#OhMyPlots.PlotDataXYLine"><code>OhMyPlots.PlotDataXYLine</code></a></li><li><a href="#OhMyPlots.Var"><code>OhMyPlots.Var</code></a></li><li><a href="#OhMyPlots.XY-Union{Tuple{PlotAttributsXYLine{S, T, P}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}"><code>OhMyPlots.XY</code></a></li><li><a href="#OhMyPlots.XY_Line_Scatter_Theme-Tuple{}"><code>OhMyPlots.XY_Line_Scatter_Theme</code></a></li><li><a href="#OhMyPlots.XY_Theme-Tuple{}"><code>OhMyPlots.XY_Theme</code></a></li><li><a href="#OhMyPlots.__check_number_of_x_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}"><code>OhMyPlots.__check_number_of_x_vars</code></a></li><li><a href="#OhMyPlots.__check_number_of_y_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}"><code>OhMyPlots.__check_number_of_y_vars</code></a></li><li><a href="#OhMyPlots._apply_xlims-Tuple{Makie.Axis, Nothing}"><code>OhMyPlots._apply_xlims</code></a></li><li><a href="#OhMyPlots._apply_xlims-Union{Tuple{T}, Tuple{Makie.Axis, Tuple{T, T}}} where T&lt;:Real"><code>OhMyPlots._apply_xlims</code></a></li><li><a href="#OhMyPlots._apply_ylims-Union{Tuple{T}, Tuple{Makie.Axis, Tuple{T, T}}} where T&lt;:Real"><code>OhMyPlots._apply_ylims</code></a></li><li><a href="#OhMyPlots._apply_ylims-Tuple{Makie.Axis, Nothing}"><code>OhMyPlots._apply_ylims</code></a></li><li><a href="#OhMyPlots._check_xy_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}"><code>OhMyPlots._check_xy_vars</code></a></li><li><a href="#OhMyPlots._create_pallette-Union{Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Any, Any}} where {S, T, P}"><code>OhMyPlots._create_pallette</code></a></li><li><a href="#OhMyPlots._draw_scatterlines-Union{Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Any, Any, Any}} where {S, T, P}"><code>OhMyPlots._draw_scatterlines</code></a></li><li><a href="#OhMyPlots._make_fig_ax-NTuple{4, Any}"><code>OhMyPlots._make_fig_ax</code></a></li><li><a href="#OhMyPlots._post_process_figure-Tuple{Any, Any, Any}"><code>OhMyPlots._post_process_figure</code></a></li><li><a href="#OhMyPlots._pre_process_figure-NTuple{5, Any}"><code>OhMyPlots._pre_process_figure</code></a></li><li><a href="#OhMyPlots.ax_barier-Tuple{Makie.Axis}"><code>OhMyPlots.ax_barier</code></a></li><li><a href="#OhMyPlots.xy_label!-Tuple{Any, Any}"><code>OhMyPlots.xy_label!</code></a></li></ul><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.OhMyPlots" href="#OhMyPlots.OhMyPlots"><code>OhMyPlots.OhMyPlots</code></a> — <span class="docstring-category">Module</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">OhMyPlots</code></pre><p>This module ]provides a set of tools to create beautiful plots using Makie.jl.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/OhMyPlots.jl#L1-L5">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.linestyle_palette" href="#OhMyPlots.linestyle_palette"><code>OhMyPlots.linestyle_palette</code></a> — <span class="docstring-category">Constant</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><p>pallete</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L4">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.CurveVar" href="#OhMyPlots.CurveVar"><code>OhMyPlots.CurveVar</code></a> — <span class="docstring-category">Type</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">struct CurveVar{S&lt;:AbstractString} &lt;: VariableAbstract</code></pre><p>Curve variable type representing a curve with a legend.</p><p><strong>Fields</strong></p><ul><li><code>legend::S</code>: The legend of the curve.</li></ul></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/types_interfaces/variable_types.jl#L46-L54">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.PlotAttributsXYLine" href="#OhMyPlots.PlotAttributsXYLine"><code>OhMyPlots.PlotAttributsXYLine</code></a> — <span class="docstring-category">Type</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">struct PlotAttributsXYLine{S,T,P} &lt;: PlotAttributsAbstract
+
+The `PlotAttributsXYLine` struct represents the attributes of an XY line plot.
+
+# Fields
+- `data::Vector{PlotDataXYLine{S,T,P}}`: Vector of XY line plot data.
+- `save_path::String`: Path to save the plot.
+- `save_format::String`: Format to save the plot.
+- `title::Union{LaTeXString,Nothing}`: Title of the plot (optional).
+- `is_scatter::Bool`: Flag indicating whether the plot is a scatter plot or not.
+- `ylim::Union{Nothing, Tuple{Float64,Float64}}`: Y-axis limits of the plot (optional).
+- `xlim::Union{Nothing, Tuple{Float64,Float64}}`: X-axis limits of the plot (optional).
+- `n_curve::Int`: Number of curves in the plot.
+- `n_each_curve::Int`: Number of data points in each curve.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/types_interfaces/plot_attributes_types.jl#L7-L23">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.PlotAttributsXYLine-Union{Tuple{Q}, Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Q, Q, Int64, Int64}} where {S, T, P, Q&lt;:AbstractString}" href="#OhMyPlots.PlotAttributsXYLine-Union{Tuple{Q}, Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Q, Q, Int64, Int64}} where {S, T, P, Q&lt;:AbstractString}"><code>OhMyPlots.PlotAttributsXYLine</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">PlotAttributsXYLine(data::Vector{PlotDataXYLine{S,T,P}}, save_path::Q, save_format::Q, n_curve::Int, n_each_curve::Int; kwargs...) where {S,T,P,Q&lt;:AbstractString}
+
+Constructs a `PlotAttributsXYLine` object.
+
+# Arguments
+- `data::Vector{PlotDataXYLine{S,T,P}}`: The data for the plot.
+- `save_path::Q`: The path to save the plot.
+- `save_format::Q`: The format to save the plot.
+- `n_curve::Int`: The number of curves in the plot.
+- `n_each_curve::Int`: The number of points in each curve.
+- `kwargs...`: Additional keyword arguments.
+
+# Returns
+A `PlotAttributsXYLine{S,T,P}` object.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/types_interfaces/plot_attributes_types.jl#L36-L52">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.PlotDataXYLine" href="#OhMyPlots.PlotDataXYLine"><code>OhMyPlots.PlotDataXYLine</code></a> — <span class="docstring-category">Type</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">struct PlotDataXYLine{S,T,P}&lt;: PlotDataAbstract</code></pre><p>The <code>PlotDataXYLine</code> struct represents a type of plot data for XY line plots.</p><p><strong>Fields</strong></p><ul><li><code>XVar::Var{S,T}</code>: The variable representing the X-axis data.</li><li><code>YVar::Var{S,P}</code>: The variable representing the Y-axis data.</li><li><code>CurveVars::CurveVar{S}</code>: The variable representing the curve data.</li></ul></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/types_interfaces/plot_data_types.jl#L8-L18">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.Var" href="#OhMyPlots.Var"><code>OhMyPlots.Var</code></a> — <span class="docstring-category">Type</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">struct Var{S&lt;:AbstractString,T&lt;:Union{AbstractFloat,Int, AbstractString}} &lt;: VariableAbstract</code></pre><p>The <code>Var</code> struct represents a variable with a name, unit, and a vector of values.</p><p><strong>Fields</strong></p><ul><li><code>name::S</code>: The name of the variable.</li><li><code>unit::S</code>: The unit of measurement for the variable.</li><li><code>value::Vector{T}</code>: A vector of values for the variable.</li></ul></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/types_interfaces/variable_types.jl#L7-L17">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.XY-Union{Tuple{PlotAttributsXYLine{S, T, P}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}" href="#OhMyPlots.XY-Union{Tuple{PlotAttributsXYLine{S, T, P}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}"><code>OhMyPlots.XY</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">XY(Pattr::PlotAttributsXYLine{S,T,P}) where {S,T,P}
+
+This function generates an XY plot based on the given plot attributes.
+
+# Arguments
+- `Pattr::PlotAttributsXYLine{S,T,P}`: The plot attributes object containing information such as data, save path, save format, title, scatter option, y-axis limits, x-axis limits, number of curves, and number of points in each curve.
+
+# Returns
+- `fig`: The generated figure object.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L312-L323">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.XY_Line_Scatter_Theme-Tuple{}" href="#OhMyPlots.XY_Line_Scatter_Theme-Tuple{}"><code>OhMyPlots.XY_Line_Scatter_Theme</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><p>XY<em>Line</em>Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle, palette=palette,      markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation)</p><pre><code class="nohighlight hljs">Create a theme for XY plots with lines and scatter plots
+
+# Arguments
+- size: Tuple{Int,Int} = (600, 480)
+- fonts: NamedTuple = (;regular = Makie.assetpath(&quot;times.ttf&quot;),
+                bold_italic  = Makie.assetpath(&quot;timesbi.ttf&quot;),
+                bold= Makie.assetpath(&quot;timesbd.ttf&quot;),
+                italic = Makie.assetpath(&quot;timesi.ttf&quot;)
+                )
+- fontsize: Int = 20
+- font: Symbol = :bold
+- axis: NamedTuple = (
+        xlabelsize=28,xlabelpadding=+5,
+        ylabelsize=28,ylabelpadding=+5,
+        xgridstyle=:dash, ygridstyle=:dash,
+        xgridwidth = 1.5, ygridwidth = 1.5,
+        xtickalign=1, ytickalign=1,
+        yticksize=10, xticksize=10,
+        markersize=16, markercolor= :white, strokewidth=2.0, 
+        )
+- Legend: NamedTuple = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
+            position=:lt, nbanks=3,labelsize=12, orientation=:horizontal)
+- Colorbar: NamedTuple = (ticksize=16, tickalign=1, spinewidth=0.5)
+- cycle: Cycle = Cycle([:color, :linestyle, :marker], covary=true)
+- palette: NamedTuple = (linestyle = linestyle_palette,marker = marker_palette,color = color_palette)
+- markersize: Int = 8
+- markercolor: Symbol = :white
+- strokewidth: Float64 = 2.0
+- position: Symbol = :lt
+- nbanks: Int = 3
+- labelsize: Int = 12
+- orientation: Symbol = :horizontal</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/Themes/XY.jl#L101-L137">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.XY_Theme-Tuple{}" href="#OhMyPlots.XY_Theme-Tuple{}"><code>OhMyPlots.XY_Theme</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><p>XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle,      palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize, orientation=orientation)</p><pre><code class="nohighlight hljs">Create a theme for XY plots
+
+# Arguments
+- size: Tuple{Int,Int} = (600, 480)
+- fonts: NamedTuple = (;regular = Makie.assetpath(&quot;times.ttf&quot;),
+                bold_italic  = Makie.assetpath(&quot;timesbi.ttf&quot;),
+                bold= Makie.assetpath(&quot;timesbd.ttf&quot;),
+                italic = Makie.assetpath(&quot;timesi.ttf&quot;)
+                )
+- fontsize: Int = 20
+- font: Symbol = :bold
+- axis: NamedTuple = (
+        xlabelsize=28,xlabelpadding=+5,
+        ylabelsize=28,ylabelpadding=+5,
+        xgridstyle=:dash, ygridstyle=:dash,
+        xgridwidth = 1.5, ygridwidth = 1.5,
+        xtickalign=1, ytickalign=1,
+        yticksize=10, xticksize=10,
+        markersize=16, markercolor= :white, strokewidth=2.0, 
+        )
+- Legend: NamedTuple = (framecolor=(:black, 0.5), backgroundcolor=(:white, 0.5),
+            position=:lt, nbanks=3,labelsize=12, orientation=:horizontal)
+- Colorbar: NamedTuple = (ticksize=16, tickalign=1, spinewidth=0.5)
+- cycle: Cycle = Cycle([:color, :linestyle, :marker], covary=true)
+- palette: NamedTuple = (linestyle = linestyle_palette,marker = marker_palette,color = color_palette)
+- markersize: Int = 8
+- markercolor: Symbol = :white
+- strokewidth: Float64 = 2.0
+- position: Symbol = :lt
+- nbanks: Int = 3
+- labelsize: Int = 12
+- orientation: Symbol = :horizontal
+
+linestyle_palette = (:solid,(:dot,:dense) ,:dash, :dashdot,:dashdotdot,(:dot,:loose))
+marker_palette = [:circle,:rect,:cross,:utriangle, :dtriangle,:xcross]
+color_palette = [:red, :blue, :black,:green,:orange,:pink]</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/Themes/XY.jl#L40-L80">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.__check_number_of_x_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}" href="#OhMyPlots.__check_number_of_x_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}"><code>OhMyPlots.__check_number_of_x_vars</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">__check_number_of_x_vars(data::Vector{PlotDataXYLine{S,T,P}}) where {S,T,P}
+
+Check the number of XVars in the given data.
+
+# Arguments
+- `data::Vector{PlotDataXYLine{S,T,P}}`: A vector of `PlotDataXYLine` objects.
+
+# Returns
+- `nothing`: If the number of XVars is consistent.
+
+# Throws
+- `error`: If the number of XVars is not consistent.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L38-L52">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.__check_number_of_y_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}" href="#OhMyPlots.__check_number_of_y_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}"><code>OhMyPlots.__check_number_of_y_vars</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">__check_number_of_y_vars(data::Vector{PlotDataXYLine{S,T,P}}) where {S,T,P}
+
+Check the number of YVars in the given data.
+
+# Arguments
+- `data::Vector{PlotDataXYLine{S,T,P}}`: A vector of `PlotDataXYLine` objects.
+
+# Returns
+- `nothing`: If the number of YVars is consistent.
+
+# Throws
+- `ErrorException`: If the number of YVars is not consistent.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L61-L75">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._apply_xlims-Tuple{Makie.Axis, Nothing}" href="#OhMyPlots._apply_xlims-Tuple{Makie.Axis, Nothing}"><code>OhMyPlots._apply_xlims</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_apply_xlims(ax::Axis, x::Nothing)
+
+Apply the x-axis limits to the given `ax` Axis object.
+
+# Arguments
+- `ax::Axis`: The Axis object to apply the limits to.
+- `x::Nothing`: The x-axis limits. Since it is `Nothing`, no limits are applied.
+
+# Returns
+- `ax::Axis`: The updated Axis object.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L273-L285">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._apply_xlims-Union{Tuple{T}, Tuple{Makie.Axis, Tuple{T, T}}} where T&lt;:Real" href="#OhMyPlots._apply_xlims-Union{Tuple{T}, Tuple{Makie.Axis, Tuple{T, T}}} where T&lt;:Real"><code>OhMyPlots._apply_xlims</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_apply_xlims(ax::Axis, x::Tuple{T,T}) where T&lt;:Real
+
+Apply the x-axis limits to the given `ax` Axis object.
+
+# Arguments
+- `ax::Axis`: The Axis object to apply the limits to.
+- `x::Tuple{T,T}`: The x-axis limits as a tuple of two elements.
+
+# Returns
+- `ax::Axis`: The modified Axis object.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L237-L249">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._apply_ylims-Tuple{Makie.Axis, Nothing}" href="#OhMyPlots._apply_ylims-Tuple{Makie.Axis, Nothing}"><code>OhMyPlots._apply_ylims</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_apply_ylims(ax::Axis, x::Nothing)
+
+Apply y-axis limits to the given axis.
+
+Parameters
+----------
+ax : Axis
+    The axis to apply the y-axis limits to.
+x : Nothing
+    The value representing no y-axis limits.
+
+Returns
+-------
+Axis
+    The modified axis.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L255-L271">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._apply_ylims-Union{Tuple{T}, Tuple{Makie.Axis, Tuple{T, T}}} where T&lt;:Real" href="#OhMyPlots._apply_ylims-Union{Tuple{T}, Tuple{Makie.Axis, Tuple{T, T}}} where T&lt;:Real"><code>OhMyPlots._apply_ylims</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_apply_ylims(ax::Axis, x::Tuple{T,T}) where T&lt;:Real
+
+Apply the y-axis limits to the given `ax` Axis object.
+
+# Arguments
+- `ax::Axis`: The Axis object to apply the y-axis limits to.
+- `x::Tuple{T,T}`: The y-axis limits as a tuple of two elements.
+
+# Returns
+- `ax`: The modified Axis object with the y-axis limits applied.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L220-L231">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._check_xy_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}" href="#OhMyPlots._check_xy_vars-Union{Tuple{Array{PlotDataXYLine{S, T, P}, 1}}, Tuple{P}, Tuple{T}, Tuple{S}} where {S, T, P}"><code>OhMyPlots._check_xy_vars</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_check_xy_vars(data::Vector{PlotDataXYLine{S,T,P}}) where {S,T,P}
+
+Check the number of x and y variables in the given vector of `PlotDataXYLine` objects.
+
+# Arguments
+- `data`: A vector of `PlotDataXYLine` objects.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L84-L92">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._create_pallette-Union{Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Any, Any}} where {S, T, P}" href="#OhMyPlots._create_pallette-Union{Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Any, Any}} where {S, T, P}"><code>OhMyPlots._create_pallette</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_create_pallette(data::Vector{PlotDataXYLine{S,T,P}}, n_curve, n_each_curve) where {S,T,P}
+
+Create a palette and color order for plotting multiple curves.
+
+# Arguments
+- `data::Vector{PlotDataXYLine{S,T,P}}`: Vector of plot data for XY line plots.
+- `n_curve`: Number of curves to plot.
+- `n_each_curve`: Number of colors to use for each curve.
+
+# Returns
+- `palette`: A tuple containing the linestyle, marker, and color palettes.
+- `color_order`: An ordered list of colors to use for each curve.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L9-L23">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._draw_scatterlines-Union{Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Any, Any, Any}} where {S, T, P}" href="#OhMyPlots._draw_scatterlines-Union{Tuple{P}, Tuple{T}, Tuple{S}, Tuple{Array{PlotDataXYLine{S, T, P}, 1}, Any, Any, Any}} where {S, T, P}"><code>OhMyPlots._draw_scatterlines</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_draw_scatterlines(data::Vector{PlotDataXYLine{S,T,P}}, ax, fig, color_order) where {S,T,P}</code></pre><p>Draws scatterlines on the given axes <code>ax</code> using the data provided in <code>data</code>. Each element in <code>data</code> represents a line plot with x-values <code>XVar.value</code> and y-values <code>YVar.value</code>. The <code>label</code> for each line plot is taken from <code>CurveVars.legend</code>. The scatterlines are drawn with the specified <code>color_order</code> for strokecolor and color.</p><p><strong>Arguments</strong></p><ul><li><code>data::Vector{PlotDataXYLine{S,T,P}}</code>: Vector of line plot data.</li><li><code>ax</code>: Axes object to draw the scatterlines on.</li><li><code>fig</code>: Figure object to which the axes belong.</li><li><code>color_order</code>: Vector of colors to use for strokecolor and color.</li></ul><p><strong>Returns</strong></p><ul><li><code>ax</code>: The modified axes object.</li><li><code>fig</code>: The unmodified figure object.</li></ul></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L188-L203">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._make_fig_ax-NTuple{4, Any}" href="#OhMyPlots._make_fig_ax-NTuple{4, Any}"><code>OhMyPlots._make_fig_ax</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_make_fig_ax(cycle, palette, xy_label, title)</code></pre><p>Constructs a figure and axis for plotting XY data.</p><p><strong>Arguments</strong></p><ul><li><code>cycle::Any</code>: The cycle parameter for ScatterLines.</li><li><code>palette::Any</code>: The palette parameter for the figure.</li><li><code>xy_label::Tuple</code>: A tuple containing the x-axis and y-axis labels and units.</li><li><code>title::Any</code>: The title of the plot.</li></ul><p><strong>Returns</strong></p><ul><li><code>ax::Axis</code>: The constructed axis.</li><li><code>fig::Figure</code>: The constructed figure.</li></ul></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L166-L180">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._post_process_figure-Tuple{Any, Any, Any}" href="#OhMyPlots._post_process_figure-Tuple{Any, Any, Any}"><code>OhMyPlots._post_process_figure</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_post_process_figure(ax, ylim, xlim)
+
+Post-processes the figure by applying the specified y-limits (`ylim`) and x-limits (`xlim`) to the axes (`ax`).
+
+# Arguments
+- `ax`: The axes object to be post-processed.
+- `ylim`: The y-limits to be applied to the axes.
+- `xlim`: The x-limits to be applied to the axes.
+
+# Returns
+The post-processed axes object.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L288-L301">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots._pre_process_figure-NTuple{5, Any}" href="#OhMyPlots._pre_process_figure-NTuple{5, Any}"><code>OhMyPlots._pre_process_figure</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">_pre_process_figure(data, save_path, save_format, n_curve, n_each_curve)</code></pre><p>Pre-processes the figure data before saving it.</p><p><strong>Arguments</strong></p><ul><li><code>data</code>: The figure data.</li><li><code>save_path</code>: The path where the figure will be saved.</li><li><code>save_format</code>: The format in which the figure will be saved.</li><li><code>n_curve</code>: The number of curves in the figure.</li><li><code>n_each_curve</code>: The number of points in each curve.</li></ul><p><strong>Returns</strong></p><ul><li><code>image_path</code>: The path of the saved image.</li><li><code>cycle</code>: The cycle of line styles and markers.</li><li><code>palette</code>: The color palette for the figure.</li><li><code>color_order</code>: The order of colors in the palette.</li><li><code>xy_label</code>: The labels for the x and y axes.</li></ul></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L119-L138">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.ax_barier-Tuple{Makie.Axis}" href="#OhMyPlots.ax_barier-Tuple{Makie.Axis}"><code>OhMyPlots.ax_barier</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">ax_barier(ax::Axis)
+
+A function that returns the input `ax` object. It is just a barrier function for type stability.
+
+# Arguments
+- `ax::Axis`: The input `Axis` object.
+
+# Returns
+- `ax`: The input `Axis` object.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L152-L163">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="OhMyPlots.xy_label!-Tuple{Any, Any}" href="#OhMyPlots.xy_label!-Tuple{Any, Any}"><code>OhMyPlots.xy_label!</code></a> — <span class="docstring-category">Method</span><span class="is-flex-grow-1 docstring-article-toggle-button" title="Collapse docstring"></span></header><section><div><pre><code class="language-julia hljs">xy_label!(data, xy_label)
+
+Set the labels for the x and y variables in the given `data` structure.
+
+# Arguments
+- `data`: The data structure containing the x and y variables.
+- `xy_label`: An array to store the labels for the x and y variables. The labels are assigned to the elements of `xy_label` in the following order: x variable name, x variable unit, y variable name, y variable unit.</code></pre></div><a class="docs-sourcelink" target="_blank" href="https://github.com/maysam-gholampour/OhMyPlots.jl/blob/ad008dd9179d83537c8116dbf796bc1efddfa5ba/src/plots/XY.jl#L101-L110">source</a></section></article></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../">« Home</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.7.0 on <span class="colophon-date" title="Sunday 15 September 2024 07:39">Sunday 15 September 2024</span>. Using Julia version 1.10.5.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
