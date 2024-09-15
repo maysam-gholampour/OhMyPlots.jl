@@ -1,7 +1,7 @@
 """
     OhMyPlots
 
-This module ]provides a set of tools to create beautiful plots using Makie.jl.
+This module provides a set of tools to create beautiful plots using Makie.jl.
 """
 module OhMyPlots
     __precompile__(false)
