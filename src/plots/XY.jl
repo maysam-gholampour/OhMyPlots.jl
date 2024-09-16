@@ -136,14 +136,13 @@ begin "pre process"
     - `xy_label`: The labels for the x and y axes.
 
     """
-    function _pre_process_figure(data,save_path,save_format,n_curve, n_each_curve)
+    function _pre_process_figure(data,n_curve, n_each_curve)
         _check_xy_vars(data)
-        image_path = save_path * "." * save_format
         cycle= Cycle([:linestyle,:marker], covary=false)
         palette, color_order = _create_pallette(data,n_curve, n_each_curve)
         xy_label = Vector{String}(undef,4)
         xy_label!(first(data),xy_label)
-        image_path,cycle,palette,color_order,xy_label
+        cycle,palette,color_order,xy_label
     end
 end
 
@@ -324,18 +323,18 @@ end
 
 """
 function XY(Pattr::PlotAttributsXYLine{S,T,P}) where {S,T,P}
-    @unpack data,save_path,save_format,title,is_scatter,ylim,xlim, n_curve, n_each_curve = Pattr
+    @unpack data,title,ylim,xlim, n_curve, n_each_curve = Pattr
     
     # pre process
-    image_path,cycle,palette,color_order,xy_label = _pre_process_figure(data,save_path,save_format,n_curve, n_each_curve)
+    cycle,palette,color_order,xy_label = _pre_process_figure(data,n_curve, n_each_curve)
     # process 
     ax , fig = _make_fig_ax(cycle,palette,xy_label,title)
     ax , fig = _draw_scatterlines(data,ax,fig,color_order)
     # post process
     ax = _post_process_figure(ax,ylim,xlim)
     # save and return
-    trim!(fig.layout)
-    save(image_path, fig)
+    # trim!(fig.layout)
+    # save(image_path, fig)
     fig 
 end
 

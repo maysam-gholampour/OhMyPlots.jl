@@ -39,11 +39,8 @@ end
 # Test for plotting
 @testset "Plot Testing n_curve = 4 - n_each_curve = 3" begin
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
-    save_path = "_precompile/43"
-    save_format = "svg"
     kwargs = Dict(
         :title => title,
-        :save_path => save_path,
         :ylim => (0.0, 1.3),
     )
 
@@ -52,7 +49,7 @@ end
 
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
-    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
+    plotAttributes = PlotAttributsXYLine(plot_data,n_curve,n_each_curve;kwargs...);
 
     fig = XY(plotAttributes)
 
@@ -68,16 +65,17 @@ end
 
     @test (@inferred XY(plotAttributes)) isa Makie.Figure
 
+    save_path = "_precompile/43"
+    save_format = "pdf"
+    save(save_path* "." * save_format,fig)
+
 end
 
 
 @testset "Plot Testing n_curve = 3 - n_each_curve = 2" begin
     title = L"n_{curve} = 3 - n_{each,curve} = 2"
-    save_path = "_precompile/32"
-    save_format = "svg"
     kwargs = Dict(
         :title => title,
-        :save_path => save_path,
         :ylim => (0.0, 1.0),
     )
 
@@ -86,7 +84,7 @@ end
 
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
-    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
+    plotAttributes = PlotAttributsXYLine(plot_data,n_curve,n_each_curve;kwargs...);
     xY_Line_Scatter_Theme = XY_Line_Scatter_Theme(strokewidth=1.5)
     set_theme!(xY_Line_Scatter_Theme, size=(600,480))
     fig = XY(plotAttributes)
@@ -133,6 +131,10 @@ end
     @test length(ax.scene.plots) == n_curve * n_each_curve
 
     @test (@inferred XY(plotAttributes)) isa Makie.Figure
+
+    save_path = "_precompile/32"
+    save_format = "pdf"
+    save(save_path* "." * save_format,fig)
 
 end
 

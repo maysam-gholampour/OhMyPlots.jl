@@ -29,11 +29,8 @@ end
 
 function _precompile_XY()
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
-    save_path = "_precompile/43"
-    save_format = "svg"
     kwargs = Dict(
         :title => title,
-        :save_path => save_path,
         :ylim => (0.0, 35.0),
     )
 
@@ -42,7 +39,7 @@ function _precompile_XY()
 
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
-    plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
+    plotAttributes = PlotAttributsXYLine(plot_data,n_curve,n_each_curve;kwargs...);
 
     fig = XY(plotAttributes)
     fig

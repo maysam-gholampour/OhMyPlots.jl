@@ -43,18 +43,9 @@ using InteractiveUtils: @code_warntype, @code_native,@code_llvm
         nothing
     end
 
-    function is_scatter_test(::Val{true})
-        "scatter plot"
-    end
-
-    function is_scatter_test(::Val{false})
-        "line plot"
-    end
 
     # ================== PlotAttributesXYLine ==================
     title = L"title"
-    save_path = "save_path"
-    save_format = "save_format"
     n_curve = 2
     n_each_curve = 3
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
@@ -62,26 +53,26 @@ using InteractiveUtils: @code_warntype, @code_native,@code_llvm
     fill_plot_data!(plot_data)
     @code_warntype fill_plot_data!(plot_data)
 
-    plotAttributes = PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format, n_curve=n_curve, n_each_curve=n_each_curve)
-    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format, n_curve=n_curve, n_each_curve=n_each_curve)
-    @code_llvm PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format, n_curve=n_curve, n_each_curve=n_each_curve)
-    @code_warntype PlotAttributsXYLine(data=plot_data, save_path=save_path, save_format=save_format, n_curve=n_curve, n_each_curve=n_each_curve)
+    plotAttributes = PlotAttributsXYLine(data=plot_data, n_curve=n_curve, n_each_curve=n_each_curve)
+    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(data=plot_data, n_curve=n_curve, n_each_curve=n_each_curve)
+    @code_llvm PlotAttributsXYLine(data=plot_data, n_curve=n_curve, n_each_curve=n_each_curve)
+    @code_warntype PlotAttributsXYLine(data=plot_data, n_curve=n_curve, n_each_curve=n_each_curve)
 
 
-    plotAttributes = PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve)
-    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve)
-    @code_llvm PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve)
-    @code_warntype PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve)
+    plotAttributes = PlotAttributsXYLine(plot_data, n_curve, n_each_curve)
+    @code_native debuginfo=:none dump_module=false PlotAttributsXYLine(plot_data, n_curve, n_each_curve)
+    @code_llvm PlotAttributsXYLine(plot_data, n_curve, n_each_curve)
+    @code_warntype PlotAttributsXYLine(plot_data, n_curve, n_each_curve)
 
     @test length(plotAttributes.data) == 6
     @test length(plotAttributes.data[1].XVar.value) == 20
-    @test is_scatter_test(Val(plotAttributes.is_scatter)) == "scatter plot"
+    
 
     is_scatter = false
-    plotAttributes_ = PlotAttributsXYLine(plot_data, save_path, save_format, n_curve, n_each_curve;is_scatter= is_scatter)
+    plotAttributes_ = PlotAttributsXYLine(plot_data, n_curve, n_each_curve)
     @test length(plotAttributes_.data) == 6
     @test length(plotAttributes_.data[1].XVar.value) == 20
-    @test is_scatter_test(Val(plotAttributes_.is_scatter)) == "line plot"
+    
 
 end
 
