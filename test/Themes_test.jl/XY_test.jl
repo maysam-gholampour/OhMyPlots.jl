@@ -1,7 +1,7 @@
 using OhMyPlots
 using Test
-using Makie
-using CairoMakie
+# using Makie
+# using CairoMakie
 
 
 function plot_without_theme()

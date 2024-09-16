@@ -2,9 +2,9 @@ begin "using packages"
 
     using OhMyPlots
     using Test
-    using Makie
-    using LaTeXStrings
-    using CairoMakie
+    # using Makie
+    # using LaTeXStrings
+    # using CairoMakie
 end
 
 
