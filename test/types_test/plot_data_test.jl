@@ -1,6 +1,5 @@
 using Test
 using OhMyPlots
-# using LaTeXStrings
 using InteractiveUtils: @code_warntype
 
 

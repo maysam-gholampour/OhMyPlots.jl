@@ -28,6 +28,7 @@ function fill_plot_data!(plot_data,n_curve,n_each_curve)
 end
 
 function _precompile_XY()
+    set_theme!(XY_Line_Scatter_Theme(markersize=10))
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
     kwargs = Dict(
         :title => title,

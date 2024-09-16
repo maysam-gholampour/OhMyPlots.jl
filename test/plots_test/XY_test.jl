@@ -51,6 +51,10 @@ end
     fill_plot_data!(plot_data,n_curve,n_each_curve)
     plotAttributes = PlotAttributsXYLine(plot_data,n_curve,n_each_curve;kwargs...);
 
+
+    xY_Line_Scatter_Theme = XY_Line_Scatter_Theme(strokewidth=1.5)
+    set_theme!(xY_Line_Scatter_Theme, size=(600,480))
+    
     fig = XY(plotAttributes)
 
     # Check if figure has content
