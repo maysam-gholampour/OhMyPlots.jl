@@ -87,7 +87,7 @@ end
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
     plotAttributes = PlotAttributsXYLine(plot_data,save_path, save_format,n_curve,n_each_curve;kwargs...);
-    xY_Line_Scatter_Theme = XY_Line_Scatter_Theme()
+    xY_Line_Scatter_Theme = XY_Line_Scatter_Theme(strokewidth=1.5)
     set_theme!(xY_Line_Scatter_Theme, size=(600,480))
     fig = XY(plotAttributes)
     leg = fig.content[2]
