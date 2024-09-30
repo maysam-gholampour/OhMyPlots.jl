@@ -31,6 +31,7 @@ abstract type PlotAttributsAbstract end
     xlim::Union{Nothing, Tuple{Float64,Float64}} = nothing
     n_curve::Int
     n_each_curve::Int
+    N_samples::Int = 1000
 end
 
 """
@@ -54,3 +55,6 @@ function PlotAttributsXYLine(data::Vector{PlotDataXYLine{S,T,P}}, n_curve::Int,n
     PlotAttributsXYLine{S,T,P}(data=data, n_curve=n_curve, n_each_curve = n_each_curve; kwargs...)
 end
 
+function PlotAttributsXYLine(data::Vector{PlotDataXYLine{S,T,P}}, n_curve::Int,n_each_curve::Int,N_samples::Int; kwargs...) where {S,T,P}
+    PlotAttributsXYLine{S,T,P}(data=data, n_curve=n_curve, n_each_curve = n_each_curve,N_samples=N_samples; kwargs...)
+end
