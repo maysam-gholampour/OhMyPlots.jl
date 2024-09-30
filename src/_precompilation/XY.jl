@@ -10,7 +10,7 @@ function fill_C(Name,range,plot_data)
 
         name = L"Y"
         unit = L"[y]"
-        value2= rand(20)
+        value2= rand(20) .+ i
         yVar = Var(name, unit, value2)
 
         legend = latexstring("$(Name)_$i")
@@ -27,12 +27,13 @@ function fill_plot_data!(plot_data,n_curve,n_each_curve)
     nothing
 end
 
+
 function _precompile_XY()
     set_theme!(XY_Line_Scatter_Theme(markersize=10))
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
     kwargs = Dict(
         :title => title,
-        :ylim => (0.0, 35.0),
+        :ylim => (0.0, 17.0),
     )
 
     n_curve = 4
@@ -41,7 +42,8 @@ function _precompile_XY()
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
     fill_plot_data!(plot_data,n_curve,n_each_curve)
     plotAttributes = PlotAttributsXYLine(plot_data,n_curve,n_each_curve;kwargs...);
-
     fig = XY(plotAttributes)
-    fig
+    N_samples = 3
+    plotAttributes = PlotAttributsXYLine(plot_data,n_curve,n_each_curve,N_samples;kwargs...);
+    fig = XY(plotAttributes)
 end

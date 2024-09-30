@@ -18,7 +18,7 @@ begin "generate data functions"
 
             name = L"Y"
             unit = L"[y]"
-            value2= rand(20)
+            value2= rand(20) .+ i
             yVar = Var(name, unit, value2)
 
             legend = latexstring("$(Name)_$i")
@@ -41,7 +41,7 @@ end
     title = L"n_{curve} = 4 - n_{each,curve} = 3"
     kwargs = Dict(
         :title => title,
-        :ylim => (0.0, 1.3),
+        :ylim => (0.0, 17.0),
     )
 
     n_curve = 4
@@ -65,13 +65,21 @@ end
 
     # Check if the Axis has lines in it
     ax = fig.content[1]
-    @test length(ax.scene.plots) == n_curve * n_each_curve
+    @test length(ax.scene.plots) == 2 * n_curve * n_each_curve
 
     @test (@inferred XY(plotAttributes)) isa Makie.Figure
 
-    save_path = "_precompile/43"
-    save_format = "pdf"
-    save(save_path* "." * save_format,fig)
+    N_samples = 3
+    plotAttributes = PlotAttributsXYLine(plot_data,n_curve,n_each_curve,N_samples;kwargs...);
+    fig = XY(plotAttributes)
+
+    if !isdir((@__DIR__)*"/images")
+        mkdir((@__DIR__)*"/images")
+    end
+    save_path = (@__DIR__)*"/images/$n_curve$n_each_curve.pdf"
+
+
+    save(save_path,fig)
 
 end
 
@@ -80,7 +88,7 @@ end
     title = L"n_{curve} = 3 - n_{each,curve} = 2"
     kwargs = Dict(
         :title => title,
-        :ylim => (0.0, 1.0),
+        :ylim => (0.0, 9.0),
     )
 
     n_curve = 3
@@ -132,14 +140,21 @@ end
 
     # Check if the Axis has lines in it
     ax = fig.content[1]
-    @test length(ax.scene.plots) == n_curve * n_each_curve
+    @test length(ax.scene.plots) == 2 * n_curve * n_each_curve
 
     @test (@inferred XY(plotAttributes)) isa Makie.Figure
 
-    save_path = "_precompile/32"
-    save_format = "pdf"
-    save(save_path* "." * save_format,fig)
+    N_samples = 3
+    plotAttributes = PlotAttributsXYLine(plot_data,n_curve,n_each_curve,N_samples;kwargs...);
+    fig = XY(plotAttributes)
 
+    if !isdir((@__DIR__)*"/images")
+        mkdir((@__DIR__)*"/images")
+    end
+    save_path = (@__DIR__)*"/images/$n_curve$n_each_curve.pdf"
+
+
+    save(save_path,fig)
 end
 
 

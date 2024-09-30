@@ -47,6 +47,7 @@ using InteractiveUtils: @code_warntype, @code_native,@code_llvm
     title = L"title"
     n_curve = 2
     n_each_curve = 3
+    
     plot_data = Vector{PlotDataXYLine{LaTeXString,Float64,Float64}}(undef, n_curve * n_each_curve)
 
     fill_plot_data!(plot_data)
@@ -67,10 +68,11 @@ using InteractiveUtils: @code_warntype, @code_native,@code_llvm
     @test length(plotAttributes.data[1].XVar.value) == 20
     
 
-    is_scatter = false
-    plotAttributes_ = PlotAttributsXYLine(plot_data, n_curve, n_each_curve)
+    N_samples = 20
+    plotAttributes_ = PlotAttributsXYLine(plot_data, n_curve, n_each_curve, N_samples)
     @test length(plotAttributes_.data) == 6
     @test length(plotAttributes_.data[1].XVar.value) == 20
+    @test plotAttributes_.N_samples == N_samples
     
 
 end
