@@ -80,11 +80,11 @@ XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legen
 function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle,
      palette=palette, markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position,
       nbanks=nbanks,labelsize=labelsize, orientation=orientation)
-    Theme(
+    _theme = Theme(
     size = size,
-    fonts = fonts,
+    # fonts = fonts,
     fontsize=fontsize, 
-    font = font,
+    # font = font,
     markersize = markersize,
     markercolor= markercolor,
     strokewidth=strokewidth,
@@ -97,6 +97,7 @@ function XY_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=ax
     ScatterLines=(cycle=cycle,),
     palette = palette
     )
+    return merge(_theme, theme_latexfonts())
 end
 
 
@@ -141,9 +142,9 @@ XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axi
 function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=font, axis=axis, Legend=Legend, Colorbar=Colorbar,cycle= cycle, palette=palette,
      markersize=markersize, markercolor=markercolor, strokewidth=strokewidth, position=position, nbanks=nbanks,labelsize=labelsize,
       orientation=orientation,leg_alignmode=leg_alignmode)
-    Theme(
-        font = font,
-        fonts = fonts,
+    _theme = Theme(
+        # font = font,
+        # fonts = fonts,
         fontsize = fontsize,
         markersize = markersize,
         markercolor= markercolor,
@@ -155,5 +156,6 @@ function XY_Line_Scatter_Theme(;size=size, fonts=fonts, fontsize=fontsize, font=
             leg_alignmode = leg_alignmode),#NOTE: This is the default legend theme
         Colorbar = Colorbar,
     )
+    return merge(_theme, theme_latexfonts())
 end
 
